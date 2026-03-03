@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crystal Clean by YT | Minneapolis Clean Services</title>
+
+<meta name="description" content="Professional residential and commercial cleaning services in Minneapolis and surrounding areas. Crystal Clean by YT - Reliable, insured & 100% satisfaction guarantee.">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:#0f1724;color:white;overflow-x:hidden}
+section{padding:90px 20px}
+.container{max-width:1200px;margin:auto}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url('https://i.postimg.cc/02FgBjmG/D7958849-809C-42CB-97BA-86FBF5C45E4F.png') center/cover no-repeat;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{font-size:52px;margin-bottom:20px;animation:fadeDown 1s}
+.hero p{font-size:22px;margin-bottom:20px;opacity:.9}
+.btn{
+display:inline-block;
+padding:15px 40px;
+border-radius:50px;
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+margin-top:10px
+}
+.btn:hover{transform:scale(1.05)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.card{
+background:#1f2937;
+padding:30px;
+border-radius:15px;
+opacity:0;
+transform:translateY(40px);
+transition:.5s
+}
+.card.show{opacity:1;transform:translateY(0)}
+.price{color:#00c6ff;font-weight:700;margin-top:10px}
+
+.reviews{background:#111827;text-align:center}
+.review{background:#1f2937;padding:25px;border-radius:15px;margin-bottom:20px}
+
+.calculator input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px
+}
+.calculator button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:50px;
+background:#00c6ff;
+color:white;
+font-weight:600;
+cursor:pointer
+}
+
+.contact form input, .contact form textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px
+}
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+padding:15px 20px;
+border-radius:50px;
+color:white;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+footer{text-align:center;padding:20px;background:#0b1220}
+
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-40px)}
+to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<h1>Crystal Clean by YT</h1>
+<p>Premium Residential & Commercial Cleaning in Minneapolis</p>
+<p>Serving Minneapolis & surrounding areas</p>
+
+<!-- 7633348190 -->
+<p style="font-size:22px;font-weight:600;">📞 (763) 334-8190</p>
+
+<a href="#contact" class="btn">Get Free Quote</a>
+</section>
+
+<section>
+<div class="container">
+<h2 style="text-align:center;margin-bottom:50px;">Our Services</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Deep Cleaning</h3>
+<div class="price">from $200</div>
+</div>
+
+<div class="card">
+<h3>Standard Cleaning</h3>
+<div class="price">from $150</div>
+</div>
+
+<div class="card">
+<h3>Move-In / Move-Out</h3>
+<div class="price">from $300</div>
+</div>
+
+<div class="card">
+<h3>Post-Construction</h3>
+<div class="price">from $400</div>
+</div>
+
+<div class="card">
+<h3>Office Cleaning</h3>
+<div class="price">Custom Quote</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="reviews">
+<div class="container">
+<h2 style="margin-bottom:40px;">What Our Clients Say</h2>
+
+<div class="review">⭐️⭐️⭐️⭐️⭐️ "Best cleaning service in Minneapolis!" Tom.P</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ "Very professional and detail-oriented." Alex.J</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ "Highly recommend Crystal Clean by YT!" Victoria.H</div>
+
+</div>
+</section>
+
+<section>
+<div class="container calculator">
+<h2 style="text-align:center;margin-bottom:30px;">Cleaning Cost Calculator</h2>
+
+<select id="service">
+<option value="100">Standard Cleaning ($100 / 1000 sq ft)</option>
+<option value="140">Deep Cleaning ($140 / 1000 sq ft)</option>
+<option value="150">Move In/Out ($150 / 1000 sq ft)</option>
+<option value="200">Post Construction ($200 / 1000 sq ft)</option>
+</select>
+
+<input type="number" id="size" placeholder="Home size in sq ft" min="1" step="1">
+
+<button onclick="calculate()">Calculate Estimate</button>
+
+<p style="margin-top:15px;font-size:14px;text-align:center;color:rgba(255,255,255,0.75);">
+All prices are approximate. Final pricing is determined individually.
+</p>
+
+<h3 id="result" style="margin-top:20px;text-align:center;"></h3>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:30px;">Request a Quote</h2>
+
+<form action="https://formsubmit.co/crystalcleanbyyt@gmail.com" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+<input type="date" name="preferred_date" required>
+<textarea name="message" placeholder="Home size (sq ft), type of cleaning, and additional details"></textarea>
+
+<input type="hidden" name="_subject" value="New Cleaning Quote Request">
+<input type="hidden" name="_captcha" value="false">
+
+<button class="btn" type="submit">Get My Quote</button>
+</form>
+
+<p style="margin-top:15px;text-align:center;font-size:14px;color:rgba(255,255,255,0.75);">
+We will review your request and call you back to confirm details and final pricing.
+</p>
+
+</div>
+</section>
+
+<footer>
+© 2026 Crystal Clean by YT | Minneapolis, MN | Call/Text: 7633348190
+</footer>
+
+<!-- 7633348190 -->
+<a href="https://wa.me/message/TAEZUECYVO7JJ1" class="whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
+
+<script>
+const cards=document.querySelectorAll('.card');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add('show')}
+});
+},{threshold:0.2});
+cards.forEach(card=>observer.observe(card));
+
+function calculate(){
+let rate = Number(document.getElementById('service').value);
+let size = Number(document.getElementById('size').value);
+
+if(!size || size<=0){
+document.getElementById('result').innerText="Please enter home size.";
+return;
+}
+
+let total = Math.round(rate*size/1000);
+document.getElementById('result').innerText="Estimated Price: $"+total;
+}
+</script>
+
+</body>
+</html>
