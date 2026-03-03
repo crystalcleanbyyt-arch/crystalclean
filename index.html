@@ -14,61 +14,44 @@
 body{font-family:'Montserrat',sans-serif;background:#0f1724;color:white;overflow-x:hidden}
 section{padding:90px 20px}
 .container{max-width:1200px;margin:auto}
-@media (max-width: 768px) {
-  .hero {
-    height: 100vh;
-    background-position: center top;
-  }
 
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero p {
-    font-size: 18px;
-  }
-
-  .btn {
-    padding: 12px 25px;
-    font-size: 16px;
-  }
-}
 .hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-url('https://i.postimg.cc/02FgBjmG/D7958849-809C-42CB-97BA-86FBF5C45E4F.png') center/cover no-repeat;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
+  height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url('https://i.postimg.cc/02FgBjmG/D7958849-809C-42CB-97BA-86FBF5C45E4F.png') center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding: 0 16px;
 }
 
 .hero h1{font-size:52px;margin-bottom:20px;animation:fadeDown 1s}
 .hero p{font-size:22px;margin-bottom:20px;opacity:.9}
+
 .btn{
-display:inline-block;
-padding:15px 40px;
-border-radius:50px;
-background:linear-gradient(45deg,#00c6ff,#0072ff);
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-margin-top:10px
+  display:inline-block;
+  padding:15px 40px;
+  border-radius:50px;
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+  margin-top:10px
 }
 .btn:hover{transform:scale(1.05)}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
 .card{
-background:#1f2937;
-padding:30px;
-border-radius:15px;
-opacity:0;
-transform:translateY(40px);
-transition:.5s
+  background:#1f2937;
+  padding:30px;
+  border-radius:15px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:.5s
 }
 .card.show{opacity:1;transform:translateY(0)}
 .price{color:#00c6ff;font-weight:700;margin-top:10px}
@@ -77,49 +60,83 @@ transition:.5s
 .review{background:#1f2937;padding:25px;border-radius:15px;margin-bottom:20px}
 
 .calculator input,select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:8px
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px
 }
 .calculator button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:50px;
-background:#00c6ff;
-color:white;
-font-weight:600;
-cursor:pointer
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:50px;
+  background:#00c6ff;
+  color:white;
+  font-weight:600;
+  cursor:pointer
 }
 
 .contact form input, .contact form textarea{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:8px
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px
 }
 
 .whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-padding:15px 20px;
-border-radius:50px;
-color:white;
-font-weight:600;
-text-decoration:none;
-box-shadow:0 5px 20px rgba(0,0,0,.3);
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#25D366;
+  padding:15px 20px;
+  border-radius:50px;
+  color:white;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 5px 20px rgba(0,0,0,.3);
+  z-index:9999;
 }
 
 footer{text-align:center;padding:20px;background:#0b1220}
 
 @keyframes fadeDown{
-from{opacity:0;transform:translateY(-40px)}
-to{opacity:1;transform:translateY(0)}
+  from{opacity:0;transform:translateY(-40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ✅ MOBILE FIXES (placed AFTER base styles so it wins) */
+@media (max-width: 768px) {
+
+  /* show full photo without cutting (no crop) */
+  .hero{
+    height: 92vh;
+    background-position: center top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+    justify-content: flex-start;
+    /* adds room so WhatsApp doesn't cover the CTA */
+    padding-bottom: 110px;
+  }
+
+  .hero h1{font-size:34px;margin-bottom:14px}
+  .hero p{font-size:18px;margin-bottom:14px}
+
+  .btn{
+    padding: 12px 22px;
+    font-size: 16px;
+  }
+
+  /* Move WhatsApp button so it won't overlap the CTA */
+  .whatsapp{
+    right: 12px;
+    bottom: 12px;
+    padding: 12px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+  }
 }
 </style>
 </head>
