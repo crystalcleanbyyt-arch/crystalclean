@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #f6f1eb;
@@ -25,8 +26,14 @@
       --max: 1220px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -51,8 +58,15 @@
       filter: blur(10px);
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; width: 100%; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
@@ -60,9 +74,8 @@
     }
 
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      position: static;
+      z-index: auto;
       backdrop-filter: blur(16px);
       background: rgba(246, 241, 235, 0.66);
       border-bottom: 1px solid rgba(95, 77, 61, 0.08);
@@ -107,7 +120,9 @@
       flex-wrap: wrap;
     }
 
-    .nav-links a:hover { opacity: 0.7; }
+    .nav-links a:hover {
+      opacity: 0.7;
+    }
 
     .btn {
       display: inline-flex;
@@ -271,9 +286,6 @@
     }
 
     .photo-main,
-    .quote-card,
-    .service-chip,
-    .gallery-item,
     .contact-card,
     .form-wrap,
     .about-card,
@@ -285,63 +297,10 @@
     .photo-main {
       min-height: 440px;
       background:
-        linear-gradient(180deg, rgba(28,22,18,0.10), rgba(28,22,18,0.22)),
-        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80') center/cover;
-      position: relative;
+        linear-gradient(180deg, rgba(20,16,13,0.04), rgba(20,16,13,0.12)),
+        url('assets/hero-kitchen.png') center/cover no-repeat;
       box-shadow: var(--shadow);
       border: 1px solid rgba(255,255,255,0.45);
-    }
-
-    .photo-main .floating {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: end;
-    }
-
-    .service-chip {
-      padding: 16px 18px;
-      max-width: 230px;
-      background: rgba(255,255,255,0.74);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.6);
-      color: #3e352f;
-    }
-
-    .service-chip strong,
-    .quote-card strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 15px;
-    }
-
-    .service-chip span,
-    .quote-card span,
-    .card p,
-    .section-head p,
-    .showcase-text p,
-    .about-card p,
-    .price-card p,
-    .contact-card p,
-    .field-note,
-    .contact-list,
-    .review p {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 15px;
-    }
-
-    .quote-card {
-      margin-left: auto;
-      max-width: 250px;
-      padding: 18px 20px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(255,255,255,0.62);
-      backdrop-filter: blur(12px);
     }
 
     section {
@@ -357,7 +316,6 @@
     }
 
     .services-grid,
-    .process-grid,
     .reviews-grid,
     .about-grid,
     .pricing-grid,
@@ -366,12 +324,27 @@
       gap: 18px;
     }
 
-    .services-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .process-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .reviews-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .about-grid { grid-template-columns: 0.95fr 1.05fr; align-items: stretch; }
-    .pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .contact-grid { grid-template-columns: 0.9fr 1.1fr; align-items: stretch; }
+    .services-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .reviews-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .about-grid {
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: stretch;
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: stretch;
+    }
 
     .card,
     .about-card,
@@ -385,29 +358,18 @@
       box-shadow: 0 14px 40px rgba(73, 52, 33, 0.08);
     }
 
-    .step-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(183, 137, 102, 0.12);
-      color: #8d6446;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .showcase {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .showcase-text {
-      padding: 34px;
-      border-radius: 34px;
+    .showcase-text p,
+    .about-card p,
+    .price-card p,
+    .contact-card p,
+    .field-note,
+    .contact-list,
+    .review p,
+    .card p,
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
     }
 
     .pill-list {
@@ -424,46 +386,6 @@
       border: 1px solid rgba(95,77,61,0.08);
       color: #5b514a;
       font-size: 14px;
-    }
-
-    .showcase-photo {
-      min-height: 420px;
-      border-radius: 34px;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(26,20,16,0.12), rgba(26,20,16,0.25)),
-        url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1200&q=80') center/cover;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.45);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .gallery-item {
-      min-height: 250px;
-      position: relative;
-      border: 1px solid rgba(255,255,255,0.45);
-      box-shadow: var(--shadow);
-      background-size: cover;
-      background-position: center;
-    }
-
-    .gallery-item::after {
-      content: attr(data-label);
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.74);
-      border: 1px solid rgba(255,255,255,0.6);
-      color: #40362f;
-      font-size: 14px;
-      backdrop-filter: blur(12px);
     }
 
     .review {
@@ -551,29 +473,8 @@
       box-shadow: 0 0 0 4px rgba(171,126,89,0.10);
     }
 
-    .field-note {
-      margin: 0;
-      font-size: 13px;
-    }
-
     .cta {
       padding-bottom: 60px;
-    }
-
-    .cta-box {
-      border-radius: 38px;
-      padding: 40px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .cta-box p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 60ch;
     }
 
     footer.site-footer {
@@ -590,18 +491,146 @@
       border-top: 1px solid rgba(95,77,61,0.08);
     }
 
+    .pair-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pair-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      border-radius: 26px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .pair-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 60px rgba(73,52,33,.14);
+    }
+
+    .pair-images {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .pair-images figure,
+    .lightbox-pair figure {
+      margin: 0;
+      position: relative;
+    }
+
+    .pair-images img,
+    .lightbox-pair img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(95,77,61,.10);
+      background: #ece6df;
+    }
+
+    .pair-images figcaption,
+    .lightbox-pair figcaption {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(34,29,25,.60);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+    .pair-copy {
+      padding: 14px 6px 4px;
+    }
+
+    .pair-copy h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+
+    .pair-copy p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(20,17,14,.78);
+      z-index: 100;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      width: min(1120px,100%);
+      background: #fff;
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+
+    .lightbox-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 4px 4px 16px;
+    }
+
+    .lightbox-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .close-btn {
+      border: 0;
+      background: #f4efe9;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .clean-list {
+      padding-left: 18px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .clean-list li {
+      margin-bottom: 6px;
+    }
+
     @media (max-width: 1080px) {
       .hero-grid,
-      .showcase,
       .services-grid,
       .reviews-grid,
-      .process-grid,
-      .cta-box,
       .about-grid,
       .pricing-grid,
       .contact-grid,
-      .gallery-grid,
-      .quick-stats-grid {
+      .quick-stats-grid,
+      .pair-grid {
         grid-template-columns: 1fr;
       }
 
@@ -617,58 +646,49 @@
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
+      .pair-images,
+      .lightbox-pair,
+      .field-grid,
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
       .hero-card,
-      .showcase-text,
-      .cta-box,
       .card,
       .about-card,
       .price-card,
       .contact-card,
-      .form-wrap { padding: 24px; }
-      .hero-stats,
-      .field-grid { grid-template-columns: 1fr; }
-      .photo-main { min-height: 360px; }
-      .photo-main .floating {
-        flex-direction: column;
-        align-items: stretch;
+      .form-wrap {
+        padding: 24px;
       }
-      .quote-card,
-      .service-chip { max-width: none; }
-      .brand-mark { font-size: 30px; }
-      h1 { font-size: 48px; }
-      h2 { font-size: 40px; }
+
+      .photo-main {
+        min-height: 340px;
+      }
+
+      .brand-mark {
+        font-size: 30px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      h2 {
+        font-size: 40px;
+      }
     }
-  
-    .pair-grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .pair-card { background: var(--surface); border:1px solid rgba(255,255,255,0.55); box-shadow: var(--shadow); backdrop-filter: blur(18px); border-radius: 26px; padding: 16px; cursor:pointer; transition: transform .2s ease, box-shadow .2s ease; }
-    .pair-card:hover { transform: translateY(-3px); box-shadow: 0 24px 60px rgba(73,52,33,.14); }
-    .pair-images { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
-    .pair-images figure, .lightbox-pair figure { margin:0; position:relative; }
-    .pair-images img, .lightbox-pair img { width:100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; border:1px solid rgba(95,77,61,.10); background:#ece6df; }
-    .pair-images figcaption, .lightbox-pair figcaption { position:absolute; top:12px; left:12px; padding:6px 10px; border-radius:999px; background:rgba(34,29,25,.60); color:#fff; font-size:11px; letter-spacing:.10em; text-transform:uppercase; }
-    .pair-copy { padding: 14px 6px 4px; }
-    .pair-copy h3 { font-size: 24px; margin-bottom: 0; }
-    .pair-copy p { margin: 6px 0 0; color: var(--muted); }
-    .lightbox { position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:20px; background:rgba(20,17,14,.78); z-index:100; }
-    .lightbox.open { display:flex; }
-    .lightbox-inner { width:min(1120px,100%); background:#fff; border-radius:28px; padding:18px; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
-    .lightbox-head { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:4px 4px 16px; }
-    .lightbox-pair { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
-    .close-btn { border:0; background:#f4efe9; border-radius:999px; padding:10px 14px; font:inherit; font-weight:600; cursor:pointer; }
-    .link-pill { display:inline-flex; align-items:center; padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.58); border:1px solid rgba(95,77,61,.10); }
-    .contact-list a { color: inherit; }
-    @media (max-width: 980px) { .pair-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-    @media (max-width: 760px) { .pair-grid, .pair-images, .lightbox-pair { grid-template-columns:1fr; } }
-</style>
+  </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container nav">
       <div class="brand">
         <div class="brand-mark">Crystal Clean by YT</div>
-        <div class="brand-sub">Twin Cities & Suburbs cleaning service</div>
+        <div class="brand-sub">Twin Cities &amp; Suburbs cleaning service</div>
       </div>
+
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
@@ -676,7 +696,6 @@
         <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="btn btn-primary" href="#contact">Get estimate</a>
     </div>
   </header>
 
@@ -684,13 +703,16 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-card glass">
-          <div class="eyebrow">Twin Cities & Suburbs cleaning service</div>
+          <div class="eyebrow">Twin Cities &amp; Suburbs cleaning service</div>
           <h1>A cleaner home with a calmer feel.</h1>
-          <p class="lead">Thoughtful residential cleaning for busy families, working professionals, and homes that need real care, not rushed checklist work. Clear communication, polished results, and a home that feels fresh and put back together.</p>
+          <p class="lead">
+            Thoughtful residential cleaning for busy families, working professionals, and homes that need real care, not rushed checklist work. Clear communication, polished results, and a home that feels fresh and put back together.
+          </p>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Request an estimate</a>
-            <a class="btn btn-secondary" href="#gallery">View gallery</a>
+            <a class="btn btn-primary" href="#contact">Get Estimate</a>
           </div>
+
           <div class="hero-stats">
             <div class="stat">
               <strong>Two-person team</strong>
@@ -708,7 +730,7 @@
         </div>
 
         <div class="visual">
-          <div class="photo-main" style="background-image: linear-gradient(180deg, rgba(20,16,13,0.04), rgba(20,16,13,0.12)), url('assets/hero-kitchen.png'); background-position:center; background-size:cover;"></div>
+          <div class="photo-main"></div>
         </div>
       </div>
     </section>
@@ -769,6 +791,7 @@
           <h2>Kitchen detailing, bathroom detailing, and the work that makes the biggest visible difference.</h2>
           <p>Kitchen detailing, bathroom detailing, buildup-prone surfaces, and the more noticeable hands-on work are included in a deep cleaning service. They are not listed as separate standalone services.</p>
         </article>
+
         <article class="about-card glass">
           <div class="eyebrow">What clients value</div>
           <h2>Clear communication, visible results, and no rushed feel.</h2>
@@ -778,7 +801,7 @@
             <span class="pill">Insurance included</span>
             <span class="pill">Recurring service available</span>
             <span class="pill">Deep cleaning means detail</span>
-            <span class="pill">Twin Cities & Suburbs</span>
+            <span class="pill">Twin Cities &amp; Suburbs</span>
           </div>
         </article>
       </div>
@@ -792,48 +815,102 @@
           </div>
           <p>Real cleaning results from actual homes we cleaned.</p>
         </div>
+
         <div class="pair-grid">
           <article class="pair-card gallery-open" data-title="Bathroom detail cleaning" data-before="assets/toilet-before-1.jpeg" data-after="assets/toilet-after-1.jpeg">
             <div class="pair-images">
-              <figure><img src="assets/toilet-before-1.jpeg" alt="Before bathroom detail cleaning"><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/toilet-after-1.jpeg" alt="After bathroom detail cleaning"><figcaption>After</figcaption></figure>
+              <figure>
+                <img src="assets/toilet-before-1.jpeg" alt="Before bathroom detail cleaning">
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/toilet-after-1.jpeg" alt="After bathroom detail cleaning">
+                <figcaption>After</figcaption>
+              </figure>
             </div>
-            <div class="pair-copy"><h3>Bathroom detail cleaning</h3></div>
+            <div class="pair-copy">
+              <h3>Bathroom detail cleaning</h3>
+            </div>
           </article>
+
           <article class="pair-card gallery-open" data-title="Kitchen reset" data-before="assets/kitchen-before-1.jpeg" data-after="assets/kitchen-after-1.jpeg">
             <div class="pair-images">
-              <figure><img src="assets/kitchen-before-1.jpeg" alt="Before kitchen reset"><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/kitchen-after-1.jpeg" alt="After kitchen reset"><figcaption>After</figcaption></figure>
+              <figure>
+                <img src="assets/kitchen-before-1.jpeg" alt="Before kitchen reset">
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/kitchen-after-1.jpeg" alt="After kitchen reset">
+                <figcaption>After</figcaption>
+              </figure>
             </div>
-            <div class="pair-copy"><h3>Kitchen reset</h3></div>
+            <div class="pair-copy">
+              <h3>Kitchen reset</h3>
+            </div>
           </article>
+
           <article class="pair-card gallery-open" data-title="Floor transformation" data-before="assets/floor-before-1.jpeg" data-after="assets/floor-after-1.jpeg">
             <div class="pair-images">
-              <figure><img src="assets/floor-before-1.jpeg" alt="Before floor transformation"><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/floor-after-1.jpeg" alt="After floor transformation"><figcaption>After</figcaption></figure>
+              <figure>
+                <img src="assets/floor-before-1.jpeg" alt="Before floor transformation">
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/floor-after-1.jpeg" alt="After floor transformation">
+                <figcaption>After</figcaption>
+              </figure>
             </div>
-            <div class="pair-copy"><h3>Floor transformation</h3></div>
+            <div class="pair-copy">
+              <h3>Floor transformation</h3>
+            </div>
           </article>
+
           <article class="pair-card gallery-open" data-title="Bathroom vanity refresh" data-before="assets/vanity-before-1.jpeg" data-after="assets/vanity-after-1.jpeg">
             <div class="pair-images">
-              <figure><img src="assets/vanity-before-1.jpeg" alt="Before bathroom vanity refresh"><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/vanity-after-1.jpeg" alt="After bathroom vanity refresh"><figcaption>After</figcaption></figure>
+              <figure>
+                <img src="assets/vanity-before-1.jpeg" alt="Before bathroom vanity refresh">
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/vanity-after-1.jpeg" alt="After bathroom vanity refresh">
+                <figcaption>After</figcaption>
+              </figure>
             </div>
-            <div class="pair-copy"><h3>Bathroom vanity refresh</h3></div>
+            <div class="pair-copy">
+              <h3>Bathroom vanity refresh</h3>
+            </div>
           </article>
+
           <article class="pair-card gallery-open" data-title="Toilet base detail" data-before="assets/toiletbase-before-1.jpeg" data-after="assets/toiletbase-after-1.jpeg">
             <div class="pair-images">
-              <figure><img src="assets/toiletbase-before-1.jpeg" alt="Before toilet base detail"><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/toiletbase-after-1.jpeg" alt="After toilet base detail"><figcaption>After</figcaption></figure>
+              <figure>
+                <img src="assets/toiletbase-before-1.jpeg" alt="Before toilet base detail">
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/toiletbase-after-1.jpeg" alt="After toilet base detail">
+                <figcaption>After</figcaption>
+              </figure>
             </div>
-            <div class="pair-copy"><h3>Toilet base detail</h3></div>
+            <div class="pair-copy">
+              <h3>Toilet base detail</h3>
+            </div>
           </article>
+
           <article class="pair-card gallery-open" data-title="Sink and faucet cleanup" data-before="assets/sink-before-1.jpeg" data-after="assets/sink-after-1.jpeg">
             <div class="pair-images">
-              <figure><img src="assets/sink-before-1.jpeg" alt="Before sink and faucet cleanup"><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/sink-after-1.jpeg" alt="After sink and faucet cleanup"><figcaption>After</figcaption></figure>
+              <figure>
+                <img src="assets/sink-before-1.jpeg" alt="Before sink and faucet cleanup">
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/sink-after-1.jpeg" alt="After sink and faucet cleanup">
+                <figcaption>After</figcaption>
+              </figure>
             </div>
-            <div class="pair-copy"><h3>Sink and faucet cleanup</h3></div>
+            <div class="pair-copy">
+              <h3>Sink and faucet cleanup</h3>
+            </div>
           </article>
         </div>
       </div>
@@ -847,6 +924,7 @@
           </div>
           <p>Quotes are based on the home, the condition, and the level of detail needed.</p>
         </div>
+
         <div class="pricing-grid">
           <article class="price-card glass">
             <div class="eyebrow">Quote factors</div>
@@ -859,6 +937,7 @@
               <li>Number of bathrooms and overall scope</li>
             </ul>
           </article>
+
           <article class="price-card glass">
             <div class="eyebrow">Included</div>
             <h3>What is already built into the service price</h3>
@@ -871,6 +950,7 @@
               <li>Medical insurance and business overhead</li>
             </ul>
           </article>
+
           <article class="price-card glass">
             <div class="eyebrow">Offer</div>
             <h3>Special offer</h3>
@@ -897,6 +977,7 @@
             </div>
             <footer>Client feedback</footer>
           </article>
+
           <article class="card review">
             <div>
               <div class="stars">★★★★★</div>
@@ -904,6 +985,7 @@
             </div>
             <footer>Client feedback</footer>
           </article>
+
           <article class="card review">
             <div>
               <div class="stars">★★★★★</div>
@@ -911,6 +993,7 @@
             </div>
             <footer>Client feedback</footer>
           </article>
+
           <article class="card review">
             <div>
               <div class="stars">★★★★★</div>
@@ -918,6 +1001,7 @@
             </div>
             <footer>Client feedback</footer>
           </article>
+
           <article class="card review">
             <div>
               <div class="stars">★★★★★</div>
@@ -936,51 +1020,82 @@
           <h2>Request an Estimate</h2>
           <p>The more accurate the details, the more accurate the quote.</p>
           <p><strong>Special offer:</strong> Book your first cleaning and get 30% off your second visit.</p>
+
           <div class="contact-list">
-            <div class="contact-item"><div><strong>Email</strong><div><a href="mailto:crystalcleanbyyt@gmail.com">crystalcleanbyyt@gmail.com</a></div></div></div>
-            <div class="contact-item"><div><strong>WhatsApp</strong><div><a href="https://wa.me/message/TAEZUECYVO7JJ1" target="_blank" rel="noopener">Message us on WhatsApp</a></div></div></div>
-            <div class="contact-item"><div><strong>Service area</strong><div>Twin Cities & Suburbs, Minnesota</div></div></div>
-            <div class="contact-item"><div><strong>Business</strong><div>Crystal Clear by YT</div></div></div>
+            <div class="contact-item">
+              <div>
+                <strong>Email</strong>
+                <div><a href="mailto:crystalcleanbyyt@gmail.com">crystalcleanbyyt@gmail.com</a></div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div>
+                <strong>WhatsApp</strong>
+                <div><a href="https://wa.me/message/TAEZUECYVO7JJ1" target="_blank" rel="noopener">Message us on WhatsApp</a></div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div>
+                <strong>Service area</strong>
+                <div>Twin Cities &amp; Suburbs, Minnesota</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div>
+                <strong>Business</strong>
+                <div>Crystal Clear by YT</div>
+              </div>
+            </div>
           </div>
         </article>
 
         <article class="form-wrap glass">
           <div class="eyebrow">Request a quote</div>
           <h2>Tell us about your home.</h2>
+
           <form action="https://formsubmit.co/crystalcleanbyyt@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New estimate request from Crystal Clear by YT website">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="thank-you.html">
+
             <div class="field-grid">
               <label>
                 Full name
-                <input type="text" name="Full name" placeholder="Your name" required />
+                <input type="text" name="Full name" placeholder="Your name" required>
               </label>
+
               <label>
                 Phone or email
-                <input type="text" name="Phone or email" placeholder="Best contact" required />
+                <input type="text" name="Phone or email" placeholder="Best contact" required>
               </label>
             </div>
+
             <div class="field-grid">
               <label>
                 Square footage
-                <input type="text" name="Square footage" placeholder="Example: 2,400 sq ft" required />
+                <input type="text" name="Square footage" placeholder="Example: 2,400 sq ft" required>
               </label>
+
               <label>
                 Desired cleaning type
                 <select name="Desired cleaning type" required>
-                  <option>Deep cleaning</option>
-                  <option>Recurring cleaning</option>
-                  <option>Move-in / Move-out cleaning</option>
-                  <option>Not sure yet</option>
+                  <option value="Deep cleaning">Deep cleaning</option>
+                  <option value="Recurring cleaning">Recurring cleaning</option>
+                  <option value="Move-in / Move-out cleaning">Move-in / Move-out cleaning</option>
+                  <option value="Not sure yet">Not sure yet</option>
                 </select>
               </label>
             </div>
+
             <label>
               Tell us about the home
               <textarea name="Home details" placeholder="Number of bathrooms, current condition, pets, timing, or anything else helpful."></textarea>
             </label>
+
             <button class="btn btn-primary" type="submit">Send Request</button>
           </form>
         </article>
@@ -1001,19 +1116,28 @@
         <div><strong id="lightbox-title">Before &amp; After</strong></div>
         <button class="close-btn" type="button" id="close-lightbox">Close</button>
       </div>
+
       <div class="lightbox-pair">
-        <figure><img id="lightbox-before" alt="Before image"><figcaption>Before</figcaption></figure>
-        <figure><img id="lightbox-after" alt="After image"><figcaption>After</figcaption></figure>
+        <figure>
+          <img id="lightbox-before" alt="Before image">
+          <figcaption>Before</figcaption>
+        </figure>
+        <figure>
+          <img id="lightbox-after" alt="After image">
+          <figcaption>After</figcaption>
+        </figure>
       </div>
     </div>
   </div>
 
   <script>
     const lightbox = document.getElementById('lightbox');
+
     if (lightbox) {
       const titleEl = document.getElementById('lightbox-title');
       const beforeEl = document.getElementById('lightbox-before');
       const afterEl = document.getElementById('lightbox-after');
+
       document.querySelectorAll('.gallery-open').forEach(card => {
         card.addEventListener('click', () => {
           titleEl.textContent = card.dataset.title || 'Before & After';
@@ -1022,9 +1146,14 @@
           lightbox.classList.add('open');
         });
       });
+
       const close = () => lightbox.classList.remove('open');
+
       document.getElementById('close-lightbox')?.addEventListener('click', close);
-      lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+
+      lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) close();
+      });
     }
   </script>
 </body>
