@@ -3,404 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crystal Clean by YT | Cleaning Services in Minneapolis</title>
 
-<meta name="description" content="Professional residential and commercial cleaning services in Minneapolis and surrounding areas. Crystal Clean by YT offers reliable, detail-oriented service with a satisfaction-focused approach.">
+<title>Crystal Clean by YT</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+color:#1f2933;
+background:#f9fafb;
+line-height:1.6;
 }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: #0f1724;
-  color: white;
-  overflow-x: hidden;
+h1,h2,h3{
+font-family:'Cormorant Garamond',serif;
+font-weight:500;
+letter-spacing:0.5px;
+margin:0;
 }
 
-section {
-  padding: 90px 20px;
+.container{
+max-width:1100px;
+margin:auto;
+padding:0 20px;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
+section{
+padding:80px 0;
 }
 
-.hero {
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url('https://i.postimg.cc/02FgBjmG/D7958849-809C-42CB-97BA-86FBF5C45E4F.png') center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 16px;
+.hero{
+background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952") center/cover no-repeat;
+height:70vh;
+display:flex;
+align-items:center;
+color:white;
+position:relative;
 }
 
-.hero h1 {
-  font-size: 52px;
-  margin-bottom: 20px;
-  animation: fadeDown 1s;
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
 }
 
-.hero p {
-  font-size: 22px;
-  margin-bottom: 20px;
-  opacity: 0.95;
-  max-width: 900px;
+.hero-content{
+position:relative;
+z-index:2;
+max-width:600px;
 }
 
-.hero-phone {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 10px;
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 15px 40px;
-  border-radius: 50px;
-  background: linear-gradient(45deg, #00c6ff, #0072ff);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-  margin-top: 10px;
-  border: none;
-  cursor: pointer;
+.hero p{
+font-size:18px;
+margin-bottom:25px;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+.btn{
+background:white;
+color:#1f2933;
+padding:14px 28px;
+border-radius:4px;
+text-decoration:none;
+display:inline-block;
+transition:.2s;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
-.card {
-  background: #1f2937;
-  padding: 30px;
-  border-radius: 15px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.5s;
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+.card{
+background:white;
+padding:30px;
+border-radius:6px;
+box-shadow:0 6px 20px rgba(0,0,0,0.06);
 }
 
-.price {
-  color: #00c6ff;
-  font-weight: 700;
-  margin-top: 10px;
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-.reviews {
-  background: #111827;
-  text-align: center;
+.gallery img{
+width:100%;
+border-radius:6px;
 }
 
-.review {
-  background: #1f2937;
-  padding: 25px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  text-align: left;
-  line-height: 1.7;
-  font-size: 16px;
+.stats{
+display:flex;
+justify-content:space-between;
+text-align:center;
+flex-wrap:wrap;
+gap:20px;
 }
 
-.review strong {
-  display: block;
-  margin-top: 12px;
-  color: #9fdcff;
-  font-size: 15px;
+.stat h3{
+font-size:36px;
 }
 
-.calculator input,
-.calculator select {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  font-family: inherit;
+.contact{
+background:#f1f5f9;
 }
 
-.calculator button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 50px;
-  background: #00c6ff;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: inherit;
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+max-width:500px;
 }
 
-.contact form input,
-.contact form textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  font-family: inherit;
+input,textarea{
+padding:12px;
+border:1px solid #ddd;
+border-radius:4px;
+font-family:inherit;
 }
 
-.contact form textarea {
-  min-height: 130px;
-  resize: vertical;
+button{
+padding:14px;
+border:none;
+background:#1f2933;
+color:white;
+border-radius:4px;
+cursor:pointer;
 }
 
-.whatsapp {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #25D366;
-  padding: 15px 20px;
-  border-radius: 50px;
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  z-index: 9999;
+button:hover{
+opacity:0.9;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0b1220;
-  font-size: 15px;
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px 20px;
 }
 
-h2 {
-  font-size: 34px;
-}
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: 70px 16px;
-  }
-
-  .hero {
-    min-height: 100vh;
-    background:
-      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-      url('https://i.postimg.cc/02FgBjmG/D7958849-809C-42CB-97BA-86FBF5C45E4F.png') center/cover no-repeat;
-    padding: 40px 16px;
-    justify-content: center;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-    margin-bottom: 14px;
-  }
-
-  .hero p {
-    font-size: 18px;
-    margin-bottom: 14px;
-  }
-
-  .hero-phone {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .btn {
-    padding: 12px 22px;
-    font-size: 16px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  .review {
-    font-size: 15px;
-    padding: 20px;
-  }
-
-  .whatsapp {
-    right: 12px;
-    bottom: 12px;
-    padding: 12px 14px;
-    border-radius: 999px;
-    font-size: 14px;
-  }
-}
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
+
 <section class="hero">
-  <h1>Crystal Clean by YT</h1>
-  <p>Premium Residential & Commercial Cleaning in Minneapolis</p>
-  <p>Serving Minneapolis and surrounding areas</p>
+<div class="container hero-content">
 
-  <p class="hero-phone">📞 (763) 334-8190</p>
+<h1>Crystal Clean by YT</h1>
 
-  <a href="#contact" class="btn">Get Free Quote</a>
+<p>
+Professional house cleaning services for Twin Cities & Suburbs.
+Reliable, detailed and respectful service you can trust.
+</p>
+
+<a class="btn" href="#contact">Request a Cleaning</a>
+
+</div>
 </section>
+
+<!-- SERVICES -->
 
 <section>
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:50px;">Our Services</h2>
+<div class="container">
 
-    <div class="grid">
-      <div class="card">
-        <h3>Deep Cleaning</h3>
-        <div class="price">from $200</div>
-      </div>
+<h2 style="margin-bottom:40px">Our Services</h2>
 
-      <div class="card">
-        <h3>Standard Cleaning</h3>
-        <div class="price">from $150</div>
-      </div>
+<div class="services">
 
-      <div class="card">
-        <h3>Move-In / Move-Out</h3>
-        <div class="price">from $300</div>
-      </div>
+<div class="card">
+<h3>Deep Cleaning</h3>
+<p>
+Detailed top-to-bottom cleaning ideal for the first visit or heavily used homes.
+</p>
+</div>
 
-      <div class="card">
-        <h3>Post-Construction</h3>
-        <div class="price">from $400</div>
-      </div>
+<div class="card">
+<h3>Recurring Cleaning</h3>
+<p>
+Weekly, bi-weekly or monthly maintenance cleaning to keep your home fresh.
+</p>
+</div>
 
-      <div class="card">
-        <h3>Office Cleaning</h3>
-        <div class="price">Custom Quote</div>
-      </div>
-    </div>
-  </div>
+<div class="card">
+<h3>Move In / Move Out</h3>
+<p>
+Thorough cleaning for new homes, rentals or preparing a property for sale.
+</p>
+</div>
+
+</div>
+</div>
 </section>
 
-<section class="reviews">
-  <div class="container">
-    <h2 style="margin-bottom:40px;">What Our Clients Say</h2>
-
-    <div class="review">
-      They did such a great job. My house felt fresh, clean, and really cared for. I also appreciated how respectful and detail-oriented they were the entire time.
-      <strong>Sarah M.</strong>
-    </div>
-
-    <div class="review">
-      Very happy with the cleaning. Everything looked neat, smelled fresh, and they paid attention to the little things that usually get missed. I will definitely book again.
-      <strong>Jessica R.</strong>
-    </div>
-
-    <div class="review">
-      Reliable, kind, and professional. They came on time, worked efficiently, and left the home looking beautiful. It was a huge help for our family.
-      <strong>Emily T.</strong>
-    </div>
-  </div>
-</section>
+<!-- GALLERY -->
 
 <section>
-  <div class="container calculator">
-    <h2 style="text-align:center; margin-bottom:30px;">Cleaning Cost Calculator</h2>
+<div class="container">
 
-    <select id="service">
-      <option value="100">Standard Cleaning</option>
-      <option value="140">Deep Cleaning</option>
-      <option value="150">Move In / Move Out</option>
-      <option value="200">Post Construction</option>
-    </select>
+<h2 style="margin-bottom:40px">Recent Work</h2>
 
-    <input type="number" id="size" placeholder="Home size in sq ft" min="1" step="1">
+<div class="gallery">
 
-    <button onclick="calculate()">Calculate Estimate</button>
+<img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0">
 
-    <p style="margin-top:15px; font-size:14px; text-align:center; color:rgba(255,255,255,0.75);">
-      All prices are approximate. Final pricing is determined individually.
-    </p>
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
 
-    <h3 id="result" style="margin-top:20px; text-align:center;"></h3>
-  </div>
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+
+<img src="https://images.unsplash.com/photo-1600210492493-0946911123ea">
+
+</div>
+
+</div>
 </section>
+
+<!-- STATS -->
+
+<section>
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<h3>100+</h3>
+<p>Homes cleaned</p>
+</div>
+
+<div class="stat">
+<h3>5★</h3>
+<p>Client satisfaction</p>
+</div>
+
+<div class="stat">
+<h3>3h</h3>
+<p>Average cleaning time</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
 
 <section id="contact" class="contact">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:30px;">Request a Quote</h2>
 
-    <form action="https://formsubmit.co/crystalcleanbyyt@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <input type="date" name="preferred_date" required>
-      <textarea name="message" placeholder="Home size in sq ft, type of cleaning, and additional details"></textarea>
+<div class="container">
 
-      <input type="hidden" name="_subject" value="New Cleaning Quote Request">
-      <input type="hidden" name="_captcha" value="false">
+<h2 style="margin-bottom:30px">Request a Cleaning</h2>
 
-      <button class="btn" type="submit">Get My Quote</button>
-    </form>
+<form action="https://formsubmit.co/your@email.com" method="POST">
 
-    <p style="margin-top:15px; text-align:center; font-size:14px; color:rgba(255,255,255,0.75);">
-      We will review your request and contact you to confirm details and final pricing.
-    </p>
-  </div>
+<input type="text" name="name" placeholder="Your name" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<textarea name="message" placeholder="Tell us about your home"></textarea>
+
+<button type="submit">Send Request</button>
+
+</form>
+
+</div>
+
 </section>
 
 <footer>
-  © 2026 Crystal Clean by YT | Minneapolis, MN | Call or Text: 7633348190
+
+<p>Crystal Clean by YT • Twin Cities & Suburbs</p>
+
 </footer>
 
-<a href="https://wa.me/message/TAEZUECYVO7JJ1" class="whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
-
-<script>
-const cards = document.querySelectorAll('.card');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.2 });
-
-cards.forEach(card => observer.observe(card));
-
-function calculate() {
-  let rate = Number(document.getElementById('service').value);
-  let size = Number(document.getElementById('size').value);
-
-  if (!size || size <= 0) {
-    document.getElementById('result').innerText = "Please enter home size.";
-    return;
-  }
-
-  let total = Math.round(rate * size / 1000);
-  document.getElementById('result').innerText = "Estimated Price: $" + total;
-}
-</script>
-
 </body>
-</html>
 </html>
