@@ -9,6 +9,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <script type="text/javascript">
+    (function(win, doc, sdk_url) {
+      if (win.ndp) return;
+      var tr = win.ndp = function() {
+        tr.handleRequest ? tr.handleRequest.apply(tr, arguments) : tr.queue.push(arguments);
+      };
+      tr.queue = [];
+      var s = 'script';
+      var new_script_section = doc.createElement(s);
+      new_script_section.async = true;
+      new_script_section.src = sdk_url;
+      var insert_pos = doc.getElementsByTagName(s)[0];
+      insert_pos.parentNode.insertBefore(new_script_section, insert_pos);
+    })(window, document, 'https://ads.nextdoor.com/public/pixel/ndp.js');
+
+    ndp('init', 'd04ceec8-6a17-4740-8c49-aefcd1ca0362');
+    ndp('track', 'PAGE_VIEW');
+    ndp('track', 'LEAD');
+  </script>
+
   <style>
     :root {
       --bg: #f6f1eb;
