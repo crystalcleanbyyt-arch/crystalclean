@@ -8,6 +8,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Nextdoor Pixel Code -->
+  <script type="text/javascript">
+    (function(win, doc, sdk_url) {
+      if (win.ndp) return;
+      var tr = win.ndp = function() {
+        tr.handleRequest ? tr.handleRequest.apply(tr, arguments) : tr.queue.push(arguments);
+      };
+      tr.queue = [];
+      var s = 'script';
+      var new_script_section = doc.createElement(s);
+      new_script_section.async = true;
+      new_script_section.src = sdk_url;
+      var insert_pos = doc.getElementsByTagName(s)[0];
+      insert_pos.parentNode.insertBefore(new_script_section, insert_pos);
+    })(window, document, 'https://ads.nextdoor.com/public/pixel/ndp.js');
+
+    ndp('init', 'd04ceec8-6a17-4740-8c49-aefcd1ca0362');
+    ndp('track', 'PAGE_VIEW');
+  </script>
+
   <style>
     :root {
       --bg: #f6f1eb;
@@ -24,6 +44,8 @@
       --radius-lg: 22px;
       --radius-md: 16px;
       --max: 1220px;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1fb85a;
     }
 
     * {
@@ -622,6 +644,54 @@
       margin-bottom: 6px;
     }
 
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 99;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(37, 211, 102, 0.95);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 14px 32px rgba(37, 211, 102, 0.28);
+      border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(10px);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      background: rgba(31, 184, 90, 0.98);
+      box-shadow: 0 18px 36px rgba(37, 211, 102, 0.34);
+    }
+
+    .whatsapp-float::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      flex: 0 0 22px;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+    }
+
+    .whatsapp-float::after {
+      content: "✓";
+      position: fixed;
+      right: 36px;
+      bottom: 31px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
     @media (max-width: 1080px) {
       .hero-grid,
       .services-grid,
@@ -678,6 +748,18 @@
       h2 {
         font-size: 40px;
       }
+
+      .whatsapp-float {
+        right: 14px;
+        bottom: 14px;
+        padding: 11px 14px;
+        font-size: 13px;
+      }
+
+      .whatsapp-float::after {
+        right: 31px;
+        bottom: 27px;
+      }
     }
   </style>
 </head>
@@ -711,6 +793,7 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get Estimate</a>
+            <a class="btn btn-secondary whatsapp-link" href="https://wa.me/message/TAEZUECYVO7JJ1" target="_blank" rel="noopener">WhatsApp</a>
           </div>
 
           <div class="hero-stats">
@@ -760,7 +843,6 @@
           <div>
             <h2>Cleaning built around what your home actually needs.</h2>
           </div>
-          
         </div>
 
         <div class="services-grid">
@@ -1032,7 +1114,7 @@
             <div class="contact-item">
               <div>
                 <strong>WhatsApp</strong>
-                <div><a href="https://wa.me/message/TAEZUECYVO7JJ1" target="_blank" rel="noopener">Message us on WhatsApp</a></div>
+                <div><a class="whatsapp-link" href="https://wa.me/message/TAEZUECYVO7JJ1" target="_blank" rel="noopener">Message us on WhatsApp</a></div>
               </div>
             </div>
 
@@ -1056,48 +1138,48 @@
           <div class="eyebrow">Request a quote</div>
           <h2>Tell us about your home.</h2>
 
-         <form action="https://formsubmit.co/crystalcleanbyyt@gmail.com" method="POST" accept-charset="UTF-8">
-  <input type="hidden" name="_subject" value="New estimate request from Crystal Clear by YT website">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://crystalcleanbyyt.com/thank-you.html">
+          <form id="estimate-form" action="https://formsubmit.co/crystalcleanbyyt@gmail.com" method="POST" accept-charset="UTF-8">
+            <input type="hidden" name="_subject" value="New estimate request from Crystal Clear by YT website">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://crystalcleanbyyt.com/thank-you.html">
 
-  <div class="field-grid">
-    <label>
-      Full name
-      <input type="text" name="Full name" placeholder="Your name" required>
-    </label>
+            <div class="field-grid">
+              <label>
+                Full name
+                <input type="text" name="Full name" placeholder="Your name" required>
+              </label>
 
-    <label>
-      Phone or email
-      <input type="text" name="Phone or email" placeholder="Best contact" required>
-    </label>
-  </div>
+              <label>
+                Phone or email
+                <input type="text" name="Phone or email" placeholder="Best contact" required>
+              </label>
+            </div>
 
-  <div class="field-grid">
-    <label>
-      Square footage
-      <input type="text" name="Square footage" placeholder="Example: 2,400 sq ft" required>
-    </label>
+            <div class="field-grid">
+              <label>
+                Square footage
+                <input type="text" name="Square footage" placeholder="Example: 2,400 sq ft" required>
+              </label>
 
-    <label>
-      Desired cleaning type
-      <select name="Desired cleaning type" required>
-        <option value="Deep cleaning">Deep cleaning</option>
-        <option value="Recurring cleaning">Recurring cleaning</option>
-        <option value="Move-in / Move-out cleaning">Move-in / Move-out cleaning</option>
-        <option value="Not sure yet">Not sure yet</option>
-      </select>
-    </label>
-  </div>
+              <label>
+                Desired cleaning type
+                <select name="Desired cleaning type" required>
+                  <option value="Deep cleaning">Deep cleaning</option>
+                  <option value="Recurring cleaning">Recurring cleaning</option>
+                  <option value="Move-in / Move-out cleaning">Move-in / Move-out cleaning</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </label>
+            </div>
 
-  <label>
-    Tell us about the home
-    <textarea name="Home details" placeholder="Number of bathrooms, current condition, pets, timing, or anything else helpful."></textarea>
-  </label>
+            <label>
+              Tell us about the home
+              <textarea name="Home details" placeholder="Number of bathrooms, current condition, pets, timing, or anything else helpful."></textarea>
+            </label>
 
-  <button class="btn btn-primary" type="submit">Send Request</button>
-</form>
+            <button class="btn btn-primary" type="submit">Send Request</button>
+          </form>
         </article>
       </div>
     </section>
@@ -1109,6 +1191,16 @@
       <span>crystalcleanbyyt@gmail.com</span>
     </div>
   </footer>
+
+  <a
+    class="whatsapp-float whatsapp-link"
+    href="https://wa.me/message/TAEZUECYVO7JJ1"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat with us on WhatsApp"
+  >
+    WhatsApp
+  </a>
 
   <div class="lightbox" id="lightbox">
     <div class="lightbox-inner">
@@ -1153,6 +1245,23 @@
 
       lightbox.addEventListener('click', e => {
         if (e.target === lightbox) close();
+      });
+    }
+
+    document.querySelectorAll('.whatsapp-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (typeof ndp === 'function') {
+          ndp('track', 'LEAD');
+        }
+      });
+    });
+
+    const estimateForm = document.getElementById('estimate-form');
+    if (estimateForm) {
+      estimateForm.addEventListener('submit', () => {
+        if (typeof ndp === 'function') {
+          ndp('track', 'LEAD');
+        }
       });
     }
   </script>
