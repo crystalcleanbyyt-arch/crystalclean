@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Nextdoor Pixel Code -->
   <script type="text/javascript">
     (function(win, doc, sdk_url) {
       if (win.ndp) return;
@@ -45,7 +44,6 @@
       --radius-md: 16px;
       --max: 1220px;
       --whatsapp: #25D366;
-      --whatsapp-dark: #1fb85a;
     }
 
     * {
@@ -179,8 +177,20 @@
       backdrop-filter: blur(10px);
     }
 
+    .special-offer-btn {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(183,137,102,0.28);
+      color: #5b514a;
+      font-weight: 600;
+    }
+
+    .special-offer-btn:hover {
+      background: rgba(183,137,102,0.12);
+      transform: translateY(-1px);
+    }
+
     .hero {
-      padding: 42px 0 34px;
+      padding: 42px 0 26px;
     }
 
     .hero-grid {
@@ -239,10 +249,9 @@
     }
 
     h1 {
-      font-size: clamp(50px, 6vw, 82px);
+      font-size: clamp(48px, 5.5vw, 76px);
       line-height: 0.95;
-      max-width: 10ch;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h2 {
@@ -261,14 +270,25 @@
       line-height: 1.8;
       color: var(--muted);
       max-width: 62ch;
-      margin-bottom: 28px;
+      margin-bottom: 0;
+    }
+
+    .lead + .lead {
+      margin-top: 14px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 28px;
+      margin-top: 28px;
+      margin-bottom: 18px;
+    }
+
+    .hero-note {
+      font-size: 14px;
+      color: #6d645d;
+      margin-top: 2px;
     }
 
     .hero-stats,
@@ -646,50 +666,29 @@
 
     .whatsapp-float {
       position: fixed;
-      right: 18px;
       bottom: 18px;
-      z-index: 99;
-      display: inline-flex;
+      right: 18px;
+      width: 54px;
+      height: 54px;
+      background: var(--whatsapp);
+      border-radius: 50%;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(37, 211, 102, 0.95);
-      color: #fff;
-      font-weight: 700;
-      font-size: 14px;
-      box-shadow: 0 14px 32px rgba(37, 211, 102, 0.28);
-      border: 1px solid rgba(255,255,255,0.35);
-      backdrop-filter: blur(10px);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      z-index: 999;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .whatsapp-float:hover {
-      transform: translateY(-2px);
-      background: rgba(31, 184, 90, 0.98);
-      box-shadow: 0 18px 36px rgba(37, 211, 102, 0.34);
+      transform: scale(1.08);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.22);
     }
 
-    .whatsapp-float::before {
-      content: "";
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.22);
-      flex: 0 0 22px;
-      position: relative;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
-    }
-
-    .whatsapp-float::after {
-      content: "✓";
-      position: fixed;
-      right: 36px;
-      bottom: 31px;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      pointer-events: none;
+    .whatsapp-float svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
     }
 
     @media (max-width: 1080px) {
@@ -742,7 +741,7 @@
       }
 
       h1 {
-        font-size: 48px;
+        font-size: 42px;
       }
 
       h2 {
@@ -750,15 +749,10 @@
       }
 
       .whatsapp-float {
+        width: 50px;
+        height: 50px;
         right: 14px;
         bottom: 14px;
-        padding: 11px 14px;
-        font-size: 13px;
-      }
-
-      .whatsapp-float::after {
-        right: 31px;
-        bottom: 27px;
       }
     }
   </style>
@@ -773,9 +767,9 @@
 
       <nav class="nav-links">
         <a href="#services">Services</a>
+        <a href="#references">References</a>
         <a href="#gallery">Gallery</a>
         <a href="#pricing">Pricing</a>
-        <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -786,17 +780,26 @@
       <div class="container hero-grid">
         <div class="hero-card glass">
           <div class="eyebrow">Twin Cities &amp; Suburbs cleaning service</div>
-          <h1>A cleaner home with a calmer feel.</h1>
+          <h1>Crystal Clean by YT</h1>
+
           <p class="lead">
-            Thoughtful residential cleaning for busy families, working professionals, and homes that need real care, not rushed checklist work. Clear communication, polished results, and a home that feels fresh and put back together.
+            Welcome to Crystal Clean by YT — a small local cleaning service by Yuliia and Tatiana, and that’s where “YT” comes from.
+          </p>
+          <p class="lead">
+            We’re a detail-oriented team serving Twin Cities and nearby suburbs. We focus on careful, thorough cleaning with attention to the details that make a real difference.
+          </p>
+          <p class="lead">
+            Whether it’s your first deep cleaning or recurring service, our goal is simple: to leave your home feeling fresh, calm, and well taken care of.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get Estimate</a>
-            <a class="btn btn-secondary whatsapp-link" href="https://wa.me/message/TAEZUECYVO7JJ1" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-secondary special-offer-btn" href="#contact">✨ Get 30% off your second cleaning</a>
           </div>
 
-          <div class="hero-stats">
+          <div class="hero-note">⭐ Trusted by local homeowners</div>
+
+          <div class="hero-stats" style="margin-top: 28px;">
             <div class="stat">
               <strong>Two-person team</strong>
               <span>Efficient, careful service with a detail-oriented approach.</span>
@@ -814,6 +817,59 @@
 
         <div class="visual">
           <div class="photo-main"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="references">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>References</h2>
+          </div>
+          <p>Kind words from happy clients.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="card review">
+            <div>
+              <div class="stars">★★★★★</div>
+              <p>I have been so happy with the cleaning that these young women have done. They are very detail oriented.</p>
+            </div>
+            <footer>Client feedback</footer>
+          </article>
+
+          <article class="card review">
+            <div>
+              <div class="stars">★★★★★</div>
+              <p>You did exactly what I wanted and needed. Thank you so much! I'm very happy with your service.</p>
+            </div>
+            <footer>Client feedback</footer>
+          </article>
+
+          <article class="card review">
+            <div>
+              <div class="stars">★★★★★</div>
+              <p>Everything looks great, thank you so much!!</p>
+            </div>
+            <footer>Client feedback</footer>
+          </article>
+
+          <article class="card review">
+            <div>
+              <div class="stars">★★★★★</div>
+              <p>You did such a great job. It's worth it!!!!</p>
+            </div>
+            <footer>Client feedback</footer>
+          </article>
+
+          <article class="card review">
+            <div>
+              <div class="stars">★★★★★</div>
+              <p>Thank you very much to you and your friend. My home looks and feels brand new.</p>
+            </div>
+            <footer>Client feedback</footer>
+          </article>
         </div>
       </div>
     </section>
@@ -1042,59 +1098,6 @@
       </div>
     </section>
 
-    <section id="reviews">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>What clients actually say</h2>
-          </div>
-          <p>Kind words from happy clients.</p>
-        </div>
-
-        <div class="reviews-grid">
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>I have been so happy with the cleaning that these young women have done. They are very detail oriented.</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>You did exactly what I wanted and needed. Thank you so much! I'm very happy with your service.</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>Everything looks great, thank you so much!!</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>You did such a great job. It's worth it!!!!</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>Thank you very much to you and your friend. My home looks and feels brand new.</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="contact" class="cta">
       <div class="container contact-grid">
         <article class="contact-card glass">
@@ -1192,14 +1195,10 @@
     </div>
   </footer>
 
-  <a
-    class="whatsapp-float whatsapp-link"
-    href="https://wa.me/message/TAEZUECYVO7JJ1"
-    target="_blank"
-    rel="noopener"
-    aria-label="Chat with us on WhatsApp"
-  >
-    WhatsApp
+  <a href="https://wa.me/message/TAEZUECYVO7JJ1" class="whatsapp-float whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 .6C7.6.6.8 7.4.8 15.8c0 2.7.7 5.3 2.1 7.5L.6 31.4l8.3-2.2c2.1 1.2 4.5 1.8 6.9 1.8 8.4 0 15.2-6.8 15.2-15.2S24.4.6 16 .6zm0 27.6c-2.2 0-4.3-.6-6.1-1.7l-.4-.2-4.9 1.3 1.3-4.8-.3-.5c-1.2-1.9-1.8-4.1-1.8-6.3C3.8 8.9 9.4 3.3 16 3.3s12.2 5.6 12.2 12.2-5.6 12.2-12.2 12.2zm6.6-9.2c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.6-.2-.9.2-.2.4-1 1.2-1.2 1.5-.2.2-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-.5-.4-1-1-1.4-1.6-.2-.4 0-.6.1-.8.1-.1.2-.3.4-.4.1-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.9-2.2-1.2-3-.3-.8-.6-.7-.9-.7h-.8c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.8 5.2.8.3 1.5.5 2 .7.8.2 1.5.2 2.1.1.6-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/>
+    </svg>
   </a>
 
   <div class="lightbox" id="lightbox">
