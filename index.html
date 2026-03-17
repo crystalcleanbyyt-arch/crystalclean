@@ -1,1260 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crystal Clean by YT</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <script type="text/javascript">
-    (function(win, doc, sdk_url) {
-      if (win.ndp) return;
-      var tr = win.ndp = function() {
-        tr.handleRequest ? tr.handleRequest.apply(tr, arguments) : tr.queue.push(arguments);
-      };
-      tr.queue = [];
-      var s = 'script';
-      var new_script_section = doc.createElement(s);
-      new_script_section.async = true;
-      new_script_section.src = sdk_url;
-      var insert_pos = doc.getElementsByTagName(s)[0];
-      insert_pos.parentNode.insertBefore(new_script_section, insert_pos);
-    })(window, document, 'https://ads.nextdoor.com/public/pixel/ndp.js');
-
-    ndp('init', 'd04ceec8-6a17-4740-8c49-aefcd1ca0362');
-    ndp('track', 'PAGE_VIEW');
-  </script>
-
-  <style>
-    :root {
-      --bg: #f6f1eb;
-      --bg-2: #efe7de;
-      --surface: rgba(255,255,255,0.72);
-      --surface-strong: rgba(255,255,255,0.88);
-      --text: #2f2a26;
-      --muted: #6d645d;
-      --line: rgba(95, 77, 61, 0.12);
-      --accent: #b78966;
-      --accent-soft: #d6b79d;
-      --shadow: 0 18px 60px rgba(73, 52, 33, 0.10);
-      --max: 1220px;
-      --whatsapp: #25D366;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 15%, rgba(232, 209, 187, 0.75), transparent 26%),
-        radial-gradient(circle at 85% 20%, rgba(213, 191, 173, 0.55), transparent 25%),
-        radial-gradient(circle at 20% 85%, rgba(244, 226, 213, 0.8), transparent 30%),
-        linear-gradient(180deg, var(--bg) 0%, #fbf8f5 45%, var(--bg-2) 100%);
-      min-height: 100vh;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 75% 70%, rgba(197, 161, 129, 0.10), transparent 28%),
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.40), transparent 18%);
-      pointer-events: none;
-      z-index: -1;
-      filter: blur(10px);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: static;
-      z-index: auto;
-      backdrop-filter: blur(16px);
-      background: rgba(246, 241, 235, 0.66);
-      border-bottom: 1px solid rgba(95, 77, 61, 0.08);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 18px 0;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 34px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      line-height: 0.95;
-    }
-
-    .brand-sub {
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      color: #4f4842;
-      font-size: 15px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.7;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      transition: 0.25s ease;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(180deg, #be9371 0%, #ab7e59 100%);
-      color: #fff;
-      box-shadow: 0 12px 28px rgba(171, 126, 89, 0.28);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 36px rgba(171, 126, 89, 0.34);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.58);
-      border-color: rgba(95,77,61,0.10);
-      color: var(--text);
-      backdrop-filter: blur(10px);
-    }
-
-    .special-offer-btn {
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(183,137,102,0.28);
-      color: #5b514a;
-      font-weight: 600;
-    }
-
-    .special-offer-btn:hover {
-      background: rgba(183,137,102,0.12);
-      transform: translateY(-1px);
-    }
-
-    .hero {
-      padding: 42px 0 26px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .glass {
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.55);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-    }
-
-    .hero-card {
-      border-radius: 36px;
-      padding: 44px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      right: -80px;
-      top: -70px;
-      width: 230px;
-      height: 230px;
-      background: radial-gradient(circle, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0) 70%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.56);
-      border: 1px solid rgba(95,77,61,0.08);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #6a5d54;
-      margin-bottom: 22px;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      margin: 0;
-      color: #221d19;
-    }
-
-    h1 {
-      font-size: clamp(48px, 5.5vw, 76px);
-      line-height: 0.95;
-      margin-bottom: 18px;
-    }
-
-    h2 {
-      font-size: clamp(38px, 4.3vw, 58px);
-      line-height: 0.98;
-      margin-bottom: 10px;
-    }
-
-    h3 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .lead {
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 62ch;
-      margin-bottom: 0;
-    }
-
-    .lead + .lead {
-      margin-top: 14px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-      margin-bottom: 18px;
-    }
-
-    .hero-note {
-      font-size: 14px;
-      color: #6d645d;
-      margin-top: 2px;
-    }
-
-    .hero-stats,
-    .quick-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .stat,
-    .quick-stat {
-      padding: 18px 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.56);
-      border: 1px solid rgba(95,77,61,0.08);
-    }
-
-    .stat strong,
-    .quick-stat strong {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 6px;
-      color: #2a231f;
-      font-weight: 700;
-    }
-
-    .stat span,
-    .quick-stat span {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .visual {
-      display: grid;
-      gap: 16px;
-    }
-
-    .photo-main,
-    .contact-card,
-    .form-wrap,
-    .about-card,
-    .price-card {
-      border-radius: 28px;
-      overflow: hidden;
-    }
-
-    .photo-main {
-      min-height: 440px;
-      background:
-        linear-gradient(180deg, rgba(20,16,13,0.04), rgba(20,16,13,0.12)),
-        url('assets/hero-kitchen.png') center/cover no-repeat;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.45);
-    }
-
-    section {
-      padding: 34px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 22px;
-    }
-
-    .services-grid,
-    .reviews-grid,
-    .about-grid,
-    .pricing-grid,
-    .contact-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .services-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .reviews-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .about-grid {
-      grid-template-columns: 0.95fr 1.05fr;
-      align-items: stretch;
-    }
-
-    .pricing-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .contact-grid {
-      grid-template-columns: 0.9fr 1.1fr;
-      align-items: stretch;
-    }
-
-    .card,
-    .about-card,
-    .price-card,
-    .contact-card,
-    .form-wrap {
-      border-radius: 28px;
-      padding: 28px;
-      background: var(--surface-strong);
-      border: 1px solid rgba(95,77,61,0.08);
-      box-shadow: 0 14px 40px rgba(73, 52, 33, 0.08);
-    }
-
-    .showcase-text p,
-    .about-card p,
-    .price-card p,
-    .contact-card p,
-    .field-note,
-    .contact-list,
-    .review p,
-    .card p,
-    .section-head p {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 15px;
-    }
-
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.68);
-      border: 1px solid rgba(95,77,61,0.08);
-      color: #5b514a;
-      font-size: 14px;
-    }
-
-    .review {
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .review .stars {
-      letter-spacing: 0.18em;
-      color: #b78966;
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-
-    .review footer {
-      margin-top: 22px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(95,77,61,0.08);
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.56);
-      border: 1px solid rgba(95,77,61,0.08);
-    }
-
-    .contact-item strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
-      color: #2d2622;
-    }
-
-    form {
-      display: grid;
-      gap: 14px;
-    }
-
-    .field-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    label {
-      display: grid;
-      gap: 8px;
-      font-size: 14px;
-      color: #514841;
-      font-weight: 500;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(95,77,61,0.12);
-      background: rgba(255,255,255,0.82);
-      font: inherit;
-      color: var(--text);
-      outline: none;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      border-color: rgba(171,126,89,0.45);
-      box-shadow: 0 0 0 4px rgba(171,126,89,0.10);
-    }
-
-    .cta {
-      padding-bottom: 60px;
-    }
-
-    footer.site-footer {
-      padding: 0 0 40px;
-      color: #655b54;
-      font-size: 14px;
-    }
-
-    .footer-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(95,77,61,0.08);
-    }
-
-    .pair-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .pair-card {
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.55);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      border-radius: 26px;
-      padding: 16px;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .pair-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 24px 60px rgba(73,52,33,.14);
-    }
-
-    .pair-images {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 12px;
-    }
-
-    .pair-images figure,
-    .lightbox-pair figure {
-      margin: 0;
-      position: relative;
-    }
-
-    .pair-images img,
-    .lightbox-pair img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 18px;
-      border: 1px solid rgba(95,77,61,.10);
-      background: #ece6df;
-    }
-
-    .pair-images figcaption,
-    .lightbox-pair figcaption {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(34,29,25,.60);
-      color: #fff;
-      font-size: 11px;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-    }
-
-    .pair-copy {
-      padding: 14px 6px 4px;
-    }
-
-    .pair-copy h3 {
-      font-size: 24px;
-      margin-bottom: 0;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(20,17,14,.78);
-      z-index: 100;
-    }
-
-    .lightbox.open {
-      display: flex;
-    }
-
-    .lightbox-inner {
-      width: min(1120px,100%);
-      background: #fff;
-      border-radius: 28px;
-      padding: 18px;
-      box-shadow: 0 24px 60px rgba(0,0,0,.28);
-    }
-
-    .lightbox-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 4px 4px 16px;
-    }
-
-    .lightbox-pair {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 14px;
-    }
-
-    .close-btn {
-      border: 0;
-      background: #f4efe9;
-      border-radius: 999px;
-      padding: 10px 14px;
-      font: inherit;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .clean-list {
-      padding-left: 18px;
-      margin: 14px 0 0;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
-    .clean-list li {
-      margin-bottom: 6px;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 18px;
-      right: 18px;
-      width: 54px;
-      height: 54px;
-      background: var(--whatsapp);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-      z-index: 999;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.08);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.22);
-    }
-
-    .whatsapp-float svg {
-      width: 24px;
-      height: 24px;
-      fill: #fff;
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .services-grid,
-      .reviews-grid,
-      .about-grid,
-      .pricing-grid,
-      .contact-grid,
-      .quick-stats-grid,
-      .pair-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head,
-      .footer-line,
-      .nav {
-        align-items: start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        gap: 14px 20px;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .pair-images,
-      .lightbox-pair,
-      .field-grid,
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card,
-      .card,
-      .about-card,
-      .price-card,
-      .contact-card,
-      .form-wrap {
-        padding: 24px;
-      }
-
-      .photo-main {
-        min-height: 340px;
-      }
-
-      .brand-mark {
-        font-size: 30px;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      h2 {
-        font-size: 40px;
-      }
-
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        right: 14px;
-        bottom: 14px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crystal Clean by YT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f4ede6;
+  color: #1a1a1a;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* HEADER */
+header {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+}
+
+.btn {
+  background: #111;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+}
+
+/* HERO */
+.hero {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px;
+  line-height: 1.2;
+}
+
+.hero p {
+  color: #666;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.hero a {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* BLOCK */
+.block {
+  background: #fff;
+  border-radius: 25px;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.block h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.block p {
+  color: #666;
+}
+
+ul {
+  padding-left: 20px;
+  color: #555;
+}
+
+/* TAGS */
+.tags {
+  margin-top: 20px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  margin: 5px;
+  font-size: 14px;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background: #111;
+  color: #fff;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+}
+</style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-mark">Crystal Clean by YT</div>
-        <div class="brand-sub">Twin Cities &amp; Suburbs cleaning service</div>
-      </div>
 
-      <nav class="nav-links">
-        <a href="#gallery">Gallery</a>
-        <a href="#references">References</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<div class="container">
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-card glass">
-          <div class="eyebrow">Twin Cities &amp; Suburbs cleaning service</div>
-          <h1>Crystal Clean by YT</h1>
+<header>
+<div class="logo">Crystal Clean</div>
+<a href="#form" class="btn">Get estimate</a>
+</header>
 
-          <p class="lead">
-            Welcome to Crystal Clean by YT — a small local cleaning service by Yuliia and Tatiana, and that’s where “YT” comes from.
-          </p>
-          <p class="lead">
-            We’re a detail-oriented team serving Twin Cities and nearby suburbs. We focus on careful, thorough cleaning with attention to the details that make a real difference.
-          </p>
-          <p class="lead">
-            Whether it’s your first deep cleaning or recurring service, our goal is simple: to leave your home feeling fresh, calm, and well taken care of.
-          </p>
+<section class="hero">
+<h1>Cleaning built around real detail</h1>
+<p>We clean what others ignore. Deep, detailed cleaning in Minneapolis and Twin Cities.</p>
+<a href="#form" class="btn">Get a free estimate</a>
+</section>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Get Estimate</a>
-            <a class="btn btn-secondary special-offer-btn" href="#contact">✨ Get 30% off your second cleaning</a>
-          </div>
+<section class="block">
+<h2>What shapes the price</h2>
+<p>Every home is different, so pricing depends on real work needed.</p>
 
-          <div class="hero-note">⭐ Trusted by local homeowners</div>
+<ul>
+<li>Square footage</li>
+<li>Condition of the home</li>
+<li>Level of detail and buildup</li>
+<li>Number of bathrooms</li>
+<li>Cleaning type</li>
+<li>Time required for proper work</li>
+</ul>
 
-          <div class="hero-stats" style="margin-top: 28px;">
-            <div class="stat">
-              <strong>Two-person team</strong>
-              <span>Efficient, careful service with a detail-oriented approach.</span>
-            </div>
-            <div class="stat">
-              <strong>Deep cleaning available</strong>
-              <span>Best for first visits, buildup-prone areas, and homes that need a visible reset.</span>
-            </div>
-            <div class="stat">
-              <strong>Recurring service options</strong>
-              <span>Available for clients who want ongoing upkeep and a consistently cleaner home.</span>
-            </div>
-          </div>
-        </div>
+<div class="tags">
+<span class="tag">Professional supplies included</span>
+<span class="tag">Insurance included</span>
+<span class="tag">Two-person team</span>
+<span class="tag">Detail-focused cleaning</span>
+<span class="tag">Twin Cities</span>
+</div>
+</section>
 
-        <div class="visual">
-          <div class="photo-main"></div>
-        </div>
-      </div>
-    </section>
+<section class="block" id="form">
+<h2>Get your estimate</h2>
 
-    <section id="gallery">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Before &amp; After Gallery</h2>
-          </div>
-          <p>Real cleaning results from actual homes we cleaned.</p>
-        </div>
+<form action="https://formsubmit.co/YOUR-EMAIL" method="POST">
 
-        <div class="pair-grid">
-          <article class="pair-card gallery-open" data-title="Bathroom detail cleaning" data-before="assets/toilet-before-1.jpeg" data-after="assets/toilet-after-1.jpeg">
-            <div class="pair-images">
-              <figure>
-                <img src="assets/toilet-before-1.jpeg" alt="Before bathroom detail cleaning">
-                <figcaption>Before</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/toilet-after-1.jpeg" alt="After bathroom detail cleaning">
-                <figcaption>After</figcaption>
-              </figure>
-            </div>
-            <div class="pair-copy">
-              <h3>Bathroom detail cleaning</h3>
-            </div>
-          </article>
+<input type="text" name="name" placeholder="Your name" required>
+<input type="text" name="contact" placeholder="Phone or email" required>
+<input type="text" name="size" placeholder="Square footage">
 
-          <article class="pair-card gallery-open" data-title="Kitchen reset" data-before="assets/kitchen-before-1.jpeg" data-after="assets/kitchen-after-1.jpeg">
-            <div class="pair-images">
-              <figure>
-                <img src="assets/kitchen-before-1.jpeg" alt="Before kitchen reset">
-                <figcaption>Before</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/kitchen-after-1.jpeg" alt="After kitchen reset">
-                <figcaption>After</figcaption>
-              </figure>
-            </div>
-            <div class="pair-copy">
-              <h3>Kitchen reset</h3>
-            </div>
-          </article>
+<textarea name="details" placeholder="Tell me about your home"></textarea>
 
-          <article class="pair-card gallery-open" data-title="Floor transformation" data-before="assets/floor-before-1.jpeg" data-after="assets/floor-after-1.jpeg">
-            <div class="pair-images">
-              <figure>
-                <img src="assets/floor-before-1.jpeg" alt="Before floor transformation">
-                <figcaption>Before</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/floor-after-1.jpeg" alt="After floor transformation">
-                <figcaption>After</figcaption>
-              </figure>
-            </div>
-            <div class="pair-copy">
-              <h3>Floor transformation</h3>
-            </div>
-          </article>
+<button type="submit">Request estimate</button>
 
-          <article class="pair-card gallery-open" data-title="Bathroom vanity refresh" data-before="assets/vanity-before-1.jpeg" data-after="assets/vanity-after-1.jpeg">
-            <div class="pair-images">
-              <figure>
-                <img src="assets/vanity-before-1.jpeg" alt="Before bathroom vanity refresh">
-                <figcaption>Before</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/vanity-after-1.jpeg" alt="After bathroom vanity refresh">
-                <figcaption>After</figcaption>
-              </figure>
-            </div>
-            <div class="pair-copy">
-              <h3>Bathroom vanity refresh</h3>
-            </div>
-          </article>
+</form>
+</section>
 
-          <article class="pair-card gallery-open" data-title="Toilet base detail" data-before="assets/toiletbase-before-1.jpeg" data-after="assets/toiletbase-after-1.jpeg">
-            <div class="pair-images">
-              <figure>
-                <img src="assets/toiletbase-before-1.jpeg" alt="Before toilet base detail">
-                <figcaption>Before</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/toiletbase-after-1.jpeg" alt="After toilet base detail">
-                <figcaption>After</figcaption>
-              </figure>
-            </div>
-            <div class="pair-copy">
-              <h3>Toilet base detail</h3>
-            </div>
-          </article>
+</div>
 
-          <article class="pair-card gallery-open" data-title="Sink and faucet cleanup" data-before="assets/sink-before-1.jpeg" data-after="assets/sink-after-1.jpeg">
-            <div class="pair-images">
-              <figure>
-                <img src="assets/sink-before-1.jpeg" alt="Before sink and faucet cleanup">
-                <figcaption>Before</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/sink-after-1.jpeg" alt="After sink and faucet cleanup">
-                <figcaption>After</figcaption>
-              </figure>
-            </div>
-            <div class="pair-copy">
-              <h3>Sink and faucet cleanup</h3>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<a class="whatsapp" href="https://wa.me/1YOURNUMBER">💬</a>
 
-    <section id="references">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>References</h2>
-          </div>
-          <p>Kind words from happy clients.</p>
-        </div>
-
-        <div class="reviews-grid">
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>I have been so happy with the cleaning that these young women have done. They are very detail oriented.</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>You did exactly what I wanted and needed. Thank you so much! I'm very happy with your service.</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>Everything looks great, thank you so much!!</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>You did such a great job. It's worth it!!!!</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-
-          <article class="card review">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p>Thank you very much to you and your friend. My home looks and feels brand new.</p>
-            </div>
-            <footer>Client feedback</footer>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="quick-stats-grid">
-          <article class="quick-stat glass">
-            <strong>Special offer</strong>
-            <span>Book your first cleaning and get 30% off your second visit.</span>
-          </article>
-          <article class="quick-stat glass">
-            <strong>Professional supplies</strong>
-            <span>Products, tools, and equipment are already included in the service.</span>
-          </article>
-          <article class="quick-stat glass">
-            <strong>Simple next step</strong>
-            <span>Use the estimate form to send your square footage, cleaning type, and a few home details.</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Cleaning built around what your home actually needs.</h2>
-          </div>
-        </div>
-
-        <div class="services-grid">
-          <article class="card">
-            <h3>First-Time Deep Cleaning</h3>
-            <p>Designed for homes that need a reset, extra detail, and more time than a maintenance clean.</p>
-          </article>
-          <article class="card">
-            <h3>Recurring Cleaning</h3>
-            <p>Available for clients who want ongoing upkeep and a consistently cleaner home.</p>
-          </article>
-          <article class="card">
-            <h3>Move-In / Move-Out Cleaning</h3>
-            <p>For empty homes, rentals, pre-listing refreshes, and moving transitions.</p>
-          </article>
-          <article class="card">
-            <h3>Customized Scope</h3>
-            <p>If your home needs extra attention, the quote is adjusted based on square footage, current condition, and the level of detail needed.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container about-grid">
-        <article class="about-card glass">
-          <div class="eyebrow">What is already part of a deep clean</div>
-          <h2>Kitchen detailing, bathroom detailing, and the work that makes the biggest visible difference.</h2>
-          <p>Kitchen detailing, bathroom detailing, buildup-prone surfaces, and the more noticeable hands-on work are included in a deep cleaning service. They are not listed as separate standalone services.</p>
-        </article>
-
-        <article class="about-card glass">
-          <div class="eyebrow">What clients value</div>
-          <h2>Clear communication, visible results, and no rushed feel.</h2>
-          <div class="pill-list">
-            <span class="pill">Two-person team</span>
-            <span class="pill">Professional supplies</span>
-            <span class="pill">Insurance included</span>
-            <span class="pill">Recurring service available</span>
-            <span class="pill">Deep cleaning means detail</span>
-            <span class="pill">Twin Cities &amp; Suburbs</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>What Shapes the Price</h2>
-          </div>
-          <p>Quotes are based on the home, the condition, and the level of detail needed.</p>
-        </div>
-
-        <div class="pricing-grid">
-          <article class="price-card glass">
-            <div class="eyebrow">Quote factors</div>
-            <h3>What your quote depends on</h3>
-            <ul class="clean-list">
-              <li>Square footage</li>
-              <li>Current condition of the home</li>
-              <li>Desired cleaning type</li>
-              <li>Level of buildup and detail needed</li>
-              <li>Number of bathrooms and overall scope</li>
-            </ul>
-          </article>
-
-          <article class="price-card glass">
-            <div class="eyebrow">Included</div>
-            <h3>What is already built into the service price</h3>
-            <ul class="clean-list">
-              <li>Insurance</li>
-              <li>Professional cleaning products</li>
-              <li>Equipment and supplies</li>
-              <li>Travel time and fuel</li>
-              <li>Taxes</li>
-              <li>Medical insurance and business overhead</li>
-            </ul>
-          </article>
-
-          <article class="price-card glass">
-            <div class="eyebrow">Offer</div>
-            <h3>Special offer</h3>
-            <p>Book your first cleaning and get 30% off your second visit.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="cta">
-      <div class="container contact-grid">
-        <article class="contact-card glass">
-          <div class="eyebrow">Contact</div>
-          <h2>Request an Estimate</h2>
-          <p>The more accurate the details, the more accurate the quote.</p>
-          <p><strong>Special offer:</strong> Book your first cleaning and get 30% off your second visit.</p>
-
-          <div class="contact-list">
-            <div class="contact-item">
-              <div>
-                <strong>Email</strong>
-                <div><a href="mailto:crystalcleanbyyt@gmail.com">crystalcleanbyyt@gmail.com</a></div>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div>
-                <strong>WhatsApp</strong>
-                <div><a class="whatsapp-link" href="https://wa.me/message/TAEZUECYVO7JJ1" target="_blank" rel="noopener">Message us on WhatsApp</a></div>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div>
-                <strong>Service area</strong>
-                <div>Twin Cities &amp; Suburbs, Minnesota</div>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div>
-                <strong>Business</strong>
-                <div>Crystal Clear by YT</div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="form-wrap glass">
-          <div class="eyebrow">Request a quote</div>
-          <h2>Tell us about your home.</h2>
-
-          <form id="estimate-form" action="https://formsubmit.co/crystalcleanbyyt@gmail.com" method="POST" accept-charset="UTF-8">
-            <input type="hidden" name="_subject" value="New estimate request from Crystal Clear by YT website">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://crystalcleanbyyt.com/thank-you.html">
-
-            <div class="field-grid">
-              <label>
-                Full name
-                <input type="text" name="Full name" placeholder="Your name" required>
-              </label>
-
-              <label>
-                Phone or email
-                <input type="text" name="Phone or email" placeholder="Best contact" required>
-              </label>
-            </div>
-
-            <div class="field-grid">
-              <label>
-                Square footage
-                <input type="text" name="Square footage" placeholder="Example: 2,400 sq ft" required>
-              </label>
-
-              <label>
-                Desired cleaning type
-                <select name="Desired cleaning type" required>
-                  <option value="Deep cleaning">Deep cleaning</option>
-                  <option value="Recurring cleaning">Recurring cleaning</option>
-                  <option value="Move-in / Move-out cleaning">Move-in / Move-out cleaning</option>
-                  <option value="Not sure yet">Not sure yet</option>
-                </select>
-              </label>
-            </div>
-
-            <label>
-              Tell us about the home
-              <textarea name="Home details" placeholder="Number of bathrooms, current condition, pets, timing, or anything else helpful."></textarea>
-            </label>
-
-            <button class="btn btn-primary" type="submit">Send Request</button>
-          </form>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-line">
-      <span>Crystal Clear by YT</span>
-      <span>crystalcleanbyyt@gmail.com</span>
-    </div>
-  </footer>
-
-  <a href="https://wa.me/message/TAEZUECYVO7JJ1" class="whatsapp-float whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 .6C7.6.6.8 7.4.8 15.8c0 2.7.7 5.3 2.1 7.5L.6 31.4l8.3-2.2c2.1 1.2 4.5 1.8 6.9 1.8 8.4 0 15.2-6.8 15.2-15.2S24.4.6 16 .6zm0 27.6c-2.2 0-4.3-.6-6.1-1.7l-.4-.2-4.9 1.3 1.3-4.8-.3-.5c-1.2-1.9-1.8-4.1-1.8-6.3C3.8 8.9 9.4 3.3 16 3.3s12.2 5.6 12.2 12.2-5.6 12.2-12.2 12.2zm6.6-9.2c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.6-.2-.9.2-.2.4-1 1.2-1.2 1.5-.2.2-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-.5-.4-1-1-1.4-1.6-.2-.4 0-.6.1-.8.1-.1.2-.3.4-.4.1-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.9-2.2-1.2-3-.3-.8-.6-.7-.9-.7h-.8c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.8 5.2.8.3 1.5.5 2 .7.8.2 1.5.2 2.1.1.6-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/>
-    </svg>
-  </a>
-
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-inner">
-      <div class="lightbox-head">
-        <div><strong id="lightbox-title">Before &amp; After</strong></div>
-        <button class="close-btn" type="button" id="close-lightbox">Close</button>
-      </div>
-
-      <div class="lightbox-pair">
-        <figure>
-          <img id="lightbox-before" alt="Before image">
-          <figcaption>Before</figcaption>
-        </figure>
-        <figure>
-          <img id="lightbox-after" alt="After image">
-          <figcaption>After</figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const lightbox = document.getElementById('lightbox');
-
-    if (lightbox) {
-      const titleEl = document.getElementById('lightbox-title');
-      const beforeEl = document.getElementById('lightbox-before');
-      const afterEl = document.getElementById('lightbox-after');
-
-      document.querySelectorAll('.gallery-open').forEach(card => {
-        card.addEventListener('click', () => {
-          titleEl.textContent = card.dataset.title || 'Before & After';
-          beforeEl.src = card.dataset.before;
-          afterEl.src = card.dataset.after;
-          lightbox.classList.add('open');
-        });
-      });
-
-      const close = () => lightbox.classList.remove('open');
-
-      document.getElementById('close-lightbox')?.addEventListener('click', close);
-
-      lightbox.addEventListener('click', e => {
-        if (e.target === lightbox) close();
-      });
-    }
-
-    document.querySelectorAll('.whatsapp-link').forEach(link => {
-      link.addEventListener('click', () => {
-        if (typeof ndp === 'function') {
-          ndp('track', 'LEAD');
-        }
-      });
-    });
-
-    const estimateForm = document.getElementById('estimate-form');
-    if (estimateForm) {
-      estimateForm.addEventListener('submit', () => {
-        if (typeof ndp === 'function') {
-          ndp('track', 'LEAD');
-        }
-      });
-    }
-  </script>
 </body>
 </html>
