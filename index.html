@@ -4,71 +4,327 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crystal Clean by YT</title>
-<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #1f2730;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* HEADER */
+header {
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+}
+
+/* HERO */
+.hero {
+  padding: 60px 0;
+}
+
+.hero-grid {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* BUTTON */
+.btn {
+  background: #6ea8db;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 0;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+/* SERVICES */
+.services {
+  display: flex;
+  gap: 20px;
+}
+
+.service {
+  flex: 1;
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.service span {
+  color: #6ea8db;
+  font-weight: bold;
+}
+
+/* STEPS */
+.steps {
+  display: flex;
+  gap: 20px;
+}
+
+.step {
+  flex: 1;
+}
+
+.step-number {
+  color: #6ea8db;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* GALLERY */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.gallery img {
+  width: calc(33.333% - 10px);
+  border-radius: 6px;
+}
+
+/* REVIEWS */
+.reviews {
+  display: flex;
+  gap: 20px;
+}
+
+.review {
+  flex: 1;
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.stars {
+  color: #6ea8db;
+  margin-bottom: 10px;
+}
+
+/* CONTACT */
+.contact {
+  display: flex;
+  gap: 40px;
+}
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+  color: #777;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero-grid,
+  .services,
+  .steps,
+  .reviews,
+  .contact {
+    flex-direction: column;
+  }
+
+  .gallery img {
+    width: 100%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header class="header">
-  <div class="container nav">
-    <div class="logo">Crystal Clean</div>
+<header>
+  <div class="container">
     <nav>
-      <a href="services.html">Services</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="contact.html">Contact</a>
+      <div><b>Crystal Clean</b></div>
+      <div>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container hero-content">
-    <div class="hero-text">
+  <div class="container hero-grid">
+    <div>
       <h1>Professional home cleaning</h1>
       <p>Deep cleaning, recurring service, and move-in / move-out cleaning in Twin Cities.</p>
-      <a href="contact.html" class="btn">Get Estimate</a>
+      <a href="#contact" class="btn">Get Estimate</a>
     </div>
-
-    <div class="hero-image">
-      <img src="assets/hero.jpg" alt="">
+    <div>
+      <img src="assets/hero.jpg">
     </div>
   </div>
 </section>
 
-<section class="services-preview">
+<section id="services">
   <div class="container">
     <h2>Services</h2>
 
-    <div class="services-grid">
-
-      <div class="service-card">
+    <div class="services">
+      <div class="service">
         <h3>Deep Cleaning</h3>
         <span>from $300</span>
         <p>First-time visits and detailed cleaning.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service">
         <h3>Recurring Cleaning</h3>
         <span>from $170</span>
-        <p>Regular upkeep for a consistently clean home.</p>
+        <p>Regular upkeep for a clean home.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service">
         <h3>Move-In / Move-Out</h3>
         <span>from $400</span>
         <p>Empty homes and full reset cleaning.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<section class="cta">
+<section>
   <div class="container">
-    <h2>Request an estimate</h2>
-    <a href="contact.html" class="btn">Contact</a>
+    <h2>How it works</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <p>Send details</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">02</div>
+        <p>Get quote</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">03</div>
+        <p>We clean</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">04</div>
+        <p>Rebook anytime</p>
+      </div>
+    </div>
   </div>
 </section>
+
+<section id="gallery">
+  <div class="container">
+    <h2>Gallery</h2>
+
+    <div class="gallery">
+      <img src="assets/sink-before-1.jpeg">
+      <img src="assets/sink-after-1.jpeg">
+      <img src="assets/vanity-after-1.jpeg">
+      <img src="assets/toilet-before-1.jpeg">
+      <img src="assets/toilet-after-1.jpeg">
+      <img src="assets/floor-after-1.jpeg">
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <h2>Reviews</h2>
+
+    <div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Very detailed cleaning, highly recommend.</p>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Everything looks perfect, thank you!</p>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Professional and reliable service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact">
+    <div>
+      <h2>Request an estimate</h2>
+      <p>Email: crystalcleanbyyt@gmail.com</p>
+    </div>
+
+    <form action="https://formsubmit.co/crystalcleanbyyt@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="text" name="contact" placeholder="Phone or email" required>
+      <input type="text" name="size" placeholder="Square footage">
+      <textarea name="details" placeholder="Details"></textarea>
+      <button class="btn">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  Crystal Clean by YT
+</footer>
 
 </body>
 </html>
