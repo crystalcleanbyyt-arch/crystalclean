@@ -29,21 +29,18 @@
 
   <style>
     :root {
-      --bg: #f7f3ee;
-      --bg-2: #efe8de;
-      --surface: rgba(255,255,255,0.78);
-      --surface-strong: rgba(255,255,255,0.90);
-      --text: #2a2420;
-      --muted: #70665d;
-      --line: rgba(95, 77, 61, 0.10);
-      --accent: #e7d98d;
-      --accent-deep: #d8c86f;
-      --shadow: 0 16px 42px rgba(62, 45, 30, 0.08);
+      --bg: #f6f1eb;
+      --bg-2: #efe7de;
+      --surface: rgba(255,255,255,0.72);
+      --surface-strong: rgba(255,255,255,0.88);
+      --text: #2f2a26;
+      --muted: #6d645d;
+      --line: rgba(95, 77, 61, 0.12);
+      --accent: #b78966;
+      --accent-soft: #d6b79d;
+      --shadow: 0 18px 60px rgba(73, 52, 33, 0.10);
       --max: 1220px;
       --whatsapp: #25D366;
-      --radius-xl: 34px;
-      --radius-lg: 28px;
-      --radius-md: 22px;
     }
 
     * {
@@ -59,10 +56,23 @@
       font-family: 'Inter', sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 12%, rgba(255,255,255,0.55), transparent 22%),
-        radial-gradient(circle at 86% 20%, rgba(231, 217, 141, 0.14), transparent 18%),
-        linear-gradient(180deg, var(--bg) 0%, #faf8f5 48%, var(--bg-2) 100%);
+        radial-gradient(circle at 10% 15%, rgba(232, 209, 187, 0.75), transparent 26%),
+        radial-gradient(circle at 85% 20%, rgba(213, 191, 173, 0.55), transparent 25%),
+        radial-gradient(circle at 20% 85%, rgba(244, 226, 213, 0.8), transparent 30%),
+        linear-gradient(180deg, var(--bg) 0%, #fbf8f5 45%, var(--bg-2) 100%);
       min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 75% 70%, rgba(197, 161, 129, 0.10), transparent 28%),
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.40), transparent 18%);
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(10px);
     }
 
     a {
@@ -83,9 +93,9 @@
     .topbar {
       position: static;
       z-index: auto;
-      background: rgba(247, 243, 238, 0.88);
+      backdrop-filter: blur(16px);
+      background: rgba(246, 241, 235, 0.66);
       border-bottom: 1px solid rgba(95, 77, 61, 0.08);
-      backdrop-filter: blur(14px);
     }
 
     .nav {
@@ -128,7 +138,7 @@
     }
 
     .nav-links a:hover {
-      opacity: 0.72;
+      opacity: 0.7;
     }
 
     .btn {
@@ -136,71 +146,94 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 50px;
+      min-height: 48px;
       padding: 0 22px;
       border-radius: 999px;
       border: 1px solid transparent;
       font-weight: 600;
-      transition: 0.22s ease;
+      transition: 0.25s ease;
       white-space: nowrap;
       cursor: pointer;
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #2a2420;
-      box-shadow: 0 10px 24px rgba(216, 200, 111, 0.26);
+      background: linear-gradient(180deg, #be9371 0%, #ab7e59 100%);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(171, 126, 89, 0.28);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      background: var(--accent-deep);
-      box-shadow: 0 12px 30px rgba(216, 200, 111, 0.30);
+      box-shadow: 0 14px 36px rgba(171, 126, 89, 0.34);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.58);
       border-color: rgba(95,77,61,0.10);
       color: var(--text);
+      backdrop-filter: blur(10px);
+    }
+
+    .special-offer-btn {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(183,137,102,0.28);
+      color: #5b514a;
+      font-weight: 600;
+    }
+
+    .special-offer-btn:hover {
+      background: rgba(183,137,102,0.12);
+      transform: translateY(-1px);
     }
 
     .hero {
-      padding: 40px 0 20px;
+      padding: 42px 0 26px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 28px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
       align-items: stretch;
     }
 
     .glass {
       background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.56);
+      border: 1px solid rgba(255,255,255,0.55);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(18px);
     }
 
     .hero-card {
-      border-radius: var(--radius-xl);
-      padding: 42px;
+      border-radius: 36px;
+      padding: 44px;
       position: relative;
       overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -70px;
+      width: 230px;
+      height: 230px;
+      background: radial-gradient(circle, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0) 70%);
+      pointer-events: none;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 9px 15px;
+      padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.56);
       border: 1px solid rgba(95,77,61,0.08);
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #6b6058;
+      color: #6a5d54;
       margin-bottom: 22px;
     }
 
@@ -209,35 +242,32 @@
       font-weight: 500;
       letter-spacing: 0.01em;
       margin: 0;
-      color: #1f1a16;
+      color: #221d19;
     }
 
     h1 {
-      font-size: clamp(46px, 5.5vw, 76px);
+      font-size: clamp(48px, 5.5vw, 76px);
       line-height: 0.95;
       margin-bottom: 18px;
     }
 
     h2 {
-      font-size: clamp(38px, 4.2vw, 58px);
+      font-size: clamp(38px, 4.3vw, 58px);
       line-height: 0.98;
       margin-bottom: 10px;
     }
 
     h3 {
-      font-size: 28px;
-      margin-bottom: 8px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-size: 32px;
+      margin-bottom: 10px;
     }
 
     .lead {
       font-size: 17px;
-      line-height: 1.85;
+      line-height: 1.8;
       color: var(--muted);
       max-width: 62ch;
-      margin: 0;
+      margin-bottom: 0;
     }
 
     .lead + .lead {
@@ -248,7 +278,45 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 30px;
+      margin-top: 28px;
+      margin-bottom: 18px;
+    }
+
+    .hero-note {
+      font-size: 14px;
+      color: #6d645d;
+      margin-top: 2px;
+    }
+
+    .hero-stats,
+    .quick-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat,
+    .quick-stat {
+      padding: 18px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.56);
+      border: 1px solid rgba(95,77,61,0.08);
+    }
+
+    .stat strong,
+    .quick-stat strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 6px;
+      color: #2a231f;
+      font-weight: 700;
+    }
+
+    .stat span,
+    .quick-stat span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .visual {
@@ -259,18 +327,19 @@
     .photo-main,
     .contact-card,
     .form-wrap,
+    .about-card,
     .price-card {
-      border-radius: var(--radius-lg);
+      border-radius: 28px;
       overflow: hidden;
     }
 
     .photo-main {
-      min-height: 500px;
+      min-height: 440px;
       background:
-        linear-gradient(180deg, rgba(20,16,13,0.03), rgba(20,16,13,0.10)),
+        linear-gradient(180deg, rgba(20,16,13,0.04), rgba(20,16,13,0.12)),
         url('assets/hero-kitchen.png') center/cover no-repeat;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.48);
+      border: 1px solid rgba(255,255,255,0.45);
     }
 
     section {
@@ -285,20 +354,9 @@
       margin-bottom: 22px;
     }
 
-    .section-head p,
-    .price-card p,
-    .contact-card p,
-    .field-note,
-    .contact-list,
-    .review p,
-    .card p {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 15px;
-    }
-
     .services-grid,
     .reviews-grid,
+    .about-grid,
     .pricing-grid,
     .contact-grid {
       display: grid;
@@ -306,11 +364,16 @@
     }
 
     .services-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .reviews-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .about-grid {
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: stretch;
     }
 
     .pricing-grid {
@@ -318,23 +381,50 @@
     }
 
     .contact-grid {
-      grid-template-columns: 0.92fr 1.08fr;
+      grid-template-columns: 0.9fr 1.1fr;
       align-items: stretch;
     }
 
     .card,
+    .about-card,
     .price-card,
     .contact-card,
     .form-wrap {
-      border-radius: var(--radius-lg);
+      border-radius: 28px;
       padding: 28px;
       background: var(--surface-strong);
       border: 1px solid rgba(95,77,61,0.08);
-      box-shadow: 0 14px 40px rgba(73, 52, 33, 0.07);
+      box-shadow: 0 14px 40px rgba(73, 52, 33, 0.08);
     }
 
-    .service-card {
-      min-height: 100%;
+    .showcase-text p,
+    .about-card p,
+    .price-card p,
+    .contact-card p,
+    .field-note,
+    .contact-list,
+    .review p,
+    .card p,
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(95,77,61,0.08);
+      color: #5b514a;
+      font-size: 14px;
     }
 
     .review {
@@ -346,7 +436,7 @@
 
     .review .stars {
       letter-spacing: 0.18em;
-      color: #b89f31;
+      color: #b78966;
       font-size: 14px;
       margin-bottom: 14px;
     }
@@ -371,7 +461,7 @@
       gap: 12px;
       padding: 14px 16px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.58);
+      background: rgba(255,255,255,0.56);
       border: 1px solid rgba(95,77,61,0.08);
     }
 
@@ -406,7 +496,7 @@
       padding: 14px 16px;
       border-radius: 16px;
       border: 1px solid rgba(95,77,61,0.12);
-      background: rgba(255,255,255,0.86);
+      background: rgba(255,255,255,0.82);
       font: inherit;
       color: var(--text);
       outline: none;
@@ -418,8 +508,8 @@
     }
 
     input:focus, textarea:focus, select:focus {
-      border-color: rgba(216, 200, 111, 0.65);
-      box-shadow: 0 0 0 4px rgba(216, 200, 111, 0.14);
+      border-color: rgba(171,126,89,0.45);
+      box-shadow: 0 0 0 4px rgba(171,126,89,0.10);
     }
 
     .cta {
@@ -450,7 +540,7 @@
       background: var(--surface);
       border: 1px solid rgba(255,255,255,0.55);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(18px);
       border-radius: 26px;
       padding: 16px;
       cursor: pointer;
@@ -459,7 +549,7 @@
 
     .pair-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 20px 52px rgba(73,52,33,.12);
+      box-shadow: 0 24px 60px rgba(73,52,33,.14);
     }
 
     .pair-images {
@@ -503,7 +593,7 @@
     }
 
     .pair-copy h3 {
-      font-size: 22px;
+      font-size: 24px;
       margin-bottom: 0;
     }
 
@@ -597,8 +687,10 @@
       .hero-grid,
       .services-grid,
       .reviews-grid,
+      .about-grid,
       .pricing-grid,
       .contact-grid,
+      .quick-stats-grid,
       .pair-grid {
         grid-template-columns: 1fr;
       }
@@ -613,21 +705,19 @@
       .nav-links {
         gap: 14px 20px;
       }
-
-      .photo-main {
-        min-height: 420px;
-      }
     }
 
     @media (max-width: 760px) {
       .pair-images,
       .lightbox-pair,
-      .field-grid {
+      .field-grid,
+      .hero-stats {
         grid-template-columns: 1fr;
       }
 
       .hero-card,
       .card,
+      .about-card,
       .price-card,
       .contact-card,
       .form-wrap {
@@ -635,7 +725,7 @@
       }
 
       .photo-main {
-        min-height: 320px;
+        min-height: 340px;
       }
 
       .brand-mark {
@@ -647,15 +737,7 @@
       }
 
       h2 {
-        font-size: 38px;
-      }
-
-      .hero {
-        padding-top: 28px;
-      }
-
-      .nav-links {
-        font-size: 14px;
+        font-size: 40px;
       }
 
       .whatsapp-float {
@@ -690,19 +772,38 @@
       <div class="container hero-grid">
         <div class="hero-card glass">
           <div class="eyebrow">Twin Cities &amp; Suburbs cleaning service</div>
-
-          <h1>Cleaning that feels calm, clear, and properly done.</h1>
+          <h1>Crystal Clean by YT</h1>
 
           <p class="lead">
-            Detail-focused cleaning for homes that need a real reset or consistent upkeep.
+            Welcome to Crystal Clean by YT — a small local cleaning service by Yuliia and Tatiana, and that’s where “YT” comes from.
           </p>
           <p class="lead">
-            Deep cleaning, recurring service, and move-in or move-out cleaning with a careful, professional approach.
+            We’re a detail-oriented team serving Twin Cities and nearby suburbs. We focus on careful, thorough cleaning with attention to the details that make a real difference.
+          </p>
+          <p class="lead">
+            Whether it’s your first deep cleaning or recurring service, our goal is simple: to leave your home feeling fresh, calm, and well taken care of.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get Estimate</a>
-            <a class="btn btn-secondary" href="#gallery">View Results</a>
+            <a class="btn btn-secondary special-offer-btn" href="#contact">✨ Get 30% off your second cleaning</a>
+          </div>
+
+          <div class="hero-note">⭐ Trusted by local homeowners</div>
+
+          <div class="hero-stats" style="margin-top: 28px;">
+            <div class="stat">
+              <strong>Two-person team</strong>
+              <span>Efficient, careful service with a detail-oriented approach.</span>
+            </div>
+            <div class="stat">
+              <strong>Deep cleaning available</strong>
+              <span>Best for first visits, buildup-prone areas, and homes that need a visible reset.</span>
+            </div>
+            <div class="stat">
+              <strong>Recurring service options</strong>
+              <span>Available for clients who want ongoing upkeep and a consistently cleaner home.</span>
+            </div>
           </div>
         </div>
 
@@ -874,31 +975,74 @@
       </div>
     </section>
 
+    <section>
+      <div class="container">
+        <div class="quick-stats-grid">
+          <article class="quick-stat glass">
+            <strong>Special offer</strong>
+            <span>Book your first cleaning and get 30% off your second visit.</span>
+          </article>
+          <article class="quick-stat glass">
+            <strong>Professional supplies</strong>
+            <span>Products, tools, and equipment are already included in the service.</span>
+          </article>
+          <article class="quick-stat glass">
+            <strong>Simple next step</strong>
+            <span>Use the estimate form to send your square footage, cleaning type, and a few home details.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="services">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Services</h2>
+            <h2>Cleaning built around what your home actually needs.</h2>
           </div>
-          <p>Built around the condition of the home and the level of detail needed.</p>
         </div>
 
         <div class="services-grid">
-          <article class="card service-card">
+          <article class="card">
             <h3>First-Time Deep Cleaning</h3>
             <p>Designed for homes that need a reset, extra detail, and more time than a maintenance clean.</p>
           </article>
-
-          <article class="card service-card">
+          <article class="card">
             <h3>Recurring Cleaning</h3>
             <p>Available for clients who want ongoing upkeep and a consistently cleaner home.</p>
           </article>
-
-          <article class="card service-card">
+          <article class="card">
             <h3>Move-In / Move-Out Cleaning</h3>
             <p>For empty homes, rentals, pre-listing refreshes, and moving transitions.</p>
           </article>
+          <article class="card">
+            <h3>Customized Scope</h3>
+            <p>If your home needs extra attention, the quote is adjusted based on square footage, current condition, and the level of detail needed.</p>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container about-grid">
+        <article class="about-card glass">
+          <div class="eyebrow">What is already part of a deep clean</div>
+          <h2>Kitchen detailing, bathroom detailing, and the work that makes the biggest visible difference.</h2>
+          <p>Kitchen detailing, bathroom detailing, buildup-prone surfaces, and the more noticeable hands-on work are included in a deep cleaning service. They are not listed as separate standalone services.</p>
+        </article>
+
+        <article class="about-card glass">
+          <div class="eyebrow">What clients value</div>
+          <h2>Clear communication, visible results, and no rushed feel.</h2>
+          <div class="pill-list">
+            <span class="pill">Two-person team</span>
+            <span class="pill">Professional supplies</span>
+            <span class="pill">Insurance included</span>
+            <span class="pill">Recurring service available</span>
+            <span class="pill">Deep cleaning means detail</span>
+            <span class="pill">Twin Cities &amp; Suburbs</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -975,6 +1119,13 @@
                 <div>Twin Cities &amp; Suburbs, Minnesota</div>
               </div>
             </div>
+
+            <div class="contact-item">
+              <div>
+                <strong>Business</strong>
+                <div>Crystal Clear by YT</div>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -983,7 +1134,7 @@
           <h2>Tell us about your home.</h2>
 
           <form id="estimate-form" action="https://formsubmit.co/crystalcleanbyyt@gmail.com" method="POST" accept-charset="UTF-8">
-            <input type="hidden" name="_subject" value="New estimate request from Crystal Clean by YT website">
+            <input type="hidden" name="_subject" value="New estimate request from Crystal Clear by YT website">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="https://crystalcleanbyyt.com/thank-you.html">
@@ -1031,7 +1182,7 @@
 
   <footer class="site-footer">
     <div class="container footer-line">
-      <span>Crystal Clean by YT</span>
+      <span>Crystal Clear by YT</span>
       <span>crystalcleanbyyt@gmail.com</span>
     </div>
   </footer>
