@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -236,6 +237,41 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 28px;
+    }
+
+    .hero-phone {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-phone-label {
+      width: 100%;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hero-phone-number {
+      color: var(--accent-dark);
+      font-size: clamp(23px, 3vw, 29px);
+      font-weight: 700;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-phone-number:hover {
+      text-decoration: underline;
+    }
+
+    .hero-phone .btn {
+      min-height: 42px;
+      padding: 0 16px;
+      font-family: inherit;
     }
 
     .hero-note {
@@ -771,6 +807,13 @@
             <a class="btn btn-primary" href="#contact">Get Estimate</a>
             <a class="btn btn-secondary" href="#gallery">View Gallery</a>
           </div>
+
+          <div class="hero-phone">
+            <span class="hero-phone-label">Questions? Call or text us for a cleaning quote:</span>
+            <a class="hero-phone-number" href="tel:+17633348190">(763) 334-8190</a>
+            <a class="btn btn-primary" href="sms:+17633348190">Send a Text</a>
+            <button class="btn btn-secondary" type="button" id="copy-phone">Copy Number</button>
+          </div>
         </div>
 
         <div class="visual">
@@ -794,13 +837,11 @@
             <span class="price-number">from $300</span>
             <span>Best for first-time visits and homes that need extra detail.</span>
           </div>
-
           <div class="stat">
             <strong>Recurring Cleaning</strong>
             <span class="price-number">from $170</span>
             <span>For regular upkeep and a consistently cleaner home.</span>
           </div>
-
           <div class="stat">
             <strong>Move-In / Move-Out / Post-Construction</strong>
             <span class="price-number">from $400</span>
@@ -1033,6 +1074,13 @@
 
             <div class="contact-item">
               <div>
+                <strong>Phone / SMS</strong>
+                <div><a href="tel:+17633348190">(763) 334-8190</a> &nbsp;·&nbsp; <a href="sms:+17633348190">Send a Text</a></div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div>
                 <strong>WhatsApp</strong>
                 <div><a class="whatsapp-link" href="https://wa.me/message/TAEZUECYVO7JJ1" target="_blank" rel="noopener">Message us on WhatsApp</a></div>
               </div>
@@ -1139,6 +1187,37 @@
   </div>
 
   <script>
+    const copyPhoneButton = document.getElementById('copy-phone');
+    if (copyPhoneButton) {
+      copyPhoneButton.addEventListener('click', async () => {
+        const number = '7633348190';
+        let copied = false;
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(number);
+            copied = true;
+          }
+        } catch (error) {
+          // Use the fallback below if clipboard access is restricted.
+        }
+
+        if (!copied) {
+          const temp = document.createElement('textarea');
+          temp.value = number;
+          temp.setAttribute('readonly', '');
+          temp.style.position = 'fixed';
+          temp.style.opacity = '0';
+          document.body.appendChild(temp);
+          temp.select();
+          copied = document.execCommand('copy');
+          temp.remove();
+        }
+
+        copyPhoneButton.textContent = copied ? 'Copied!' : 'Select the number above to copy';
+      });
+    }
+
     const lightbox = document.getElementById('lightbox');
 
     if (lightbox) {
