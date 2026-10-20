@@ -99,6 +99,24 @@ p{line-height:1.77;color:var(--ink-soft)}
 .dialog-grid figcaption{margin-top:7px;font-size:13px;font-weight:700;color:var(--muted)}
 .dialog-grid figure{margin:0}
 .dialog-grid.single{grid-template-columns:1fr}
+/* Nextdoor source cards — original reviews are linked, not reproduced */
+.nextdoor-review-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.nextdoor-review-card{display:flex;flex-direction:column;min-width:0;min-height:318px;padding:27px 29px 23px;background:linear-gradient(160deg,#f6fcf8 0%,#fff 66%);border:1px solid #d9eadf;border-radius:20px;box-shadow:0 8px 28px rgba(22,91,55,.045)}
+.nextdoor-review-top{display:flex;align-items:center;gap:13px}
+.nextdoor-review-icon{width:48px;height:48px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#e4f5e9;color:#19804b}
+.nextdoor-review-icon svg{width:27px;height:27px}
+.nextdoor-review-platform{font-size:18px;font-weight:800;color:#186d43;line-height:1.2}
+.nextdoor-review-kicker{font-size:12px;color:var(--muted);margin-top:4px}
+.nextdoor-review-body{padding:24px 0;flex:1}
+.nextdoor-review-eyebrow{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:#238858;font-weight:750;margin-bottom:9px}
+.nextdoor-review-body h3{font-size:22px;line-height:1.3;margin:0 0 9px;color:var(--ink)}
+.nextdoor-review-body p{font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0}
+.nextdoor-review-footer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid #e2eee6;padding-top:15px;font-size:12px;color:var(--muted)}
+.nextdoor-review-footer a{font-size:12px;font-weight:700;color:#187545;text-decoration:underline;text-decoration-color:#a2cab3;text-underline-offset:3px}
+.nextdoor-review-footer a:hover{text-decoration-color:currentColor}
+.nextdoor-review-disclaimer{font-size:12px;color:var(--muted);margin-top:14px}
+@media(max-width:720px){.nextdoor-review-grid{grid-template-columns:1fr}.nextdoor-review-card{min-height:0;padding:23px}.nextdoor-review-body{padding:22px 0}}
+
 .review-card .stars{letter-spacing:.14em;font-size:16px;color:var(--blue);margin-bottom:17px}
 .review-card blockquote{font-size:16px;line-height:1.8;margin:0;color:var(--ink-soft)}
 .review-card .source{font-size:12px;color:var(--muted);margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
